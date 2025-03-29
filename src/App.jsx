@@ -12,7 +12,7 @@ export default function App() {
   const [darkMode, setDarkMode] = useState(true);
   return (
     <Router>
-      <div className={`flex flex-col min-h-screen ${darkMode ? 'bg-[url("/bg.gif")] bg-cover bg-center' : ''} border-x-8 border-black`}>
+      <div className={`flex flex-col min-h-screen ${darkMode ? '' : ''} border-x-8 border-black`}>
       <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
           <Route path="/" element={<Home darkMode = {darkMode} />} />
