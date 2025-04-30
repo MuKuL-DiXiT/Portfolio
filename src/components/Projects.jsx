@@ -6,8 +6,8 @@ export default function ({ darkMode }) {
     const [show1, setShow1] = useState(false);
     const [show2, setShow2] = useState(false);
     return (
-        <div className={`flex mb-10 flex-col items-center font-sourGummy`} >
-            <div className="flex flex-col text-red-600 items-center text-5xl font-marker mb-2">
+        <div className={`flex mb-10 flex-col items-center `} >
+            <div className="flex flex-col text-red-600 items-center text-5xl mb-2">
                 ~Projects~
             </div>
             <div className={`flex flex-col gap-16 items-center text-center sm:w-full md:w-3/4 lg:w-2/3 mt-10 p-2  rounded-lg ${darkMode ? ' text-orange-200 shadow-orange-900 hover:shadow-orange-300' : ' text-black shadow-gray-700 hover:shadow-black'}  shadow-lg  transition duration-300 hover:shadow-2xl hover:scale-105 gap-2 px-4`}>
@@ -55,7 +55,7 @@ export default function ({ darkMode }) {
                     </div>
             </div>
             <div className={`flex flex-col gap-16 items-center text-center sm:w-full md:w-3/4 lg:w-2/3 mt-10 p-2  rounded-lg ${darkMode ? ' text-orange-200 shadow-orange-900 hover:shadow-orange-300' : ' text-black shadow-gray-700 hover:shadow-black'}  shadow-lg  transition duration-300 hover:shadow-2xl hover:scale-105 gap-2 px-4`}>
-                <h1 className="text-5xl">3. Rubiks club</h1>
+                <h1 className="text-5xl">3. Rubiks club mock site</h1>
                     <p className="text-left">Its a frontend demostration of a sample website of Rubiks Club . It has a simple and clean design. The website has a home page, about page and a teams page.
                     </p>
                     <button onClick={() => setShow2(!show2)} className={`text-2xl font-semibold ${darkMode? ' shadow-white shadow-lg hover:shadow-white': ' shadow-black hover:shadow-black shadow-lg text-black '} p-2 rounded hover:shadow-2xl`}>Technology Used</button>
