@@ -8,7 +8,17 @@ export default {
         playwright: ['Playwright', 'serif', 'sans'],
         marker: ['Permanent Marker', 'cursive'],
         sourGummy: ['"Sour Gummy"', 'cursive'],
+        mont: ['Montserrat', 'sans-serif'],
       },
+      keyframes: {
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        }
+      },
+      animation: {
+        fadeIn: 'fadeIn 1s ease-out forwards'
+      }
     },
   },
   plugins: [],
