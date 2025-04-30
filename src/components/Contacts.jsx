@@ -22,7 +22,7 @@ export default function Contacts({ darkMode }) {
         { card: 3, href: "https://www.instagram.com/mukul____dixit/", icon: <FaInstagram className='bg-gradient-to-br from-red-500 to-white rounded-md'/>, name: "Instagram", text: "~Follow me~" }
     ]
     return (
-        <div className='min-h-screen lg:w-2/3 md:w-full sm:w-full flex justify-evenly flex-wrap lg:ml-[16.666%] font-marker'>
+        <div className='min-h-screen lg:w-2/3 md:w-full sm:w-full flex justify-evenly flex-wrap lg:ml-[16.666%] '>
             <div className='flex flex-col gap-10 w-1/2'>
                 <div className={`mt-10  text-center text-red-600`}>
                     Talk to me
