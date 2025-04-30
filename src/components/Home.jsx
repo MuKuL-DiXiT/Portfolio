@@ -67,7 +67,7 @@ export default function Home({ darkMode }) {
                     />
                 </div>
                 <div >
-                    ____Web Developer | DSA Enthusiast <br />
+                    ----Web Developer | DSA Enthusiast <br />
                     A passionate developer and creative thinker, I thrive on turning ideas into seamless web experiences. Driven by curiosity and a believer in learning by doing, I focus on precision, innovation, and crafting intuitive digital solutions.
                 </div>
                 <div>
