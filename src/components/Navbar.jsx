@@ -7,7 +7,9 @@ export default function Navbar({ darkMode, setDarkMode }) {
     return (
         <div className={`mt-5 border-b-2 flex-wrap ${darkMode ? 'text-orange-200 border-b-orange-200' : 'text-black border-b-black'} flex justify-evenly rounded-full `}>
             <div className="font-marker text-3xl text-red-600">
-                MD
+<NavLink to="/" className={navClass}>
+                        MD
+                    </NavLink>
             </div>
             <div className="flex flex-wrap justify-center mt-1 sm:gap-10 md:gap-8 lg:gap-5 items-baseline">
                 <div>
