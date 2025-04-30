@@ -10,7 +10,7 @@ import Home from "./components/Home";
 import LandingAnimation from "./components/LandingAnimation";
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [showLanding, setShowLanding] = useState(true);
 
   useEffect(() => {
