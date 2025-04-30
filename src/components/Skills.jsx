@@ -7,8 +7,8 @@ import { FaJs, FaReact, FaHtml5, FaCss3, FaDatabase} from "react-icons/fa";
 export default function Skills({darkMode}){
     return (
         <div className={`flex flex-col min-h-screen justify-evenly text-center items-center ${darkMode ? 'text-orange-100' : 'text-black'}`}>
-            <div className={`flex flex-col font-marker`}>
-                <h1 className={`font-marker text-red-600 text-5xl `}>Skills</h1>
+            <div className={`flex flex-col`}>
+                <h1 className={` text-red-600 text-5xl `}>Skills</h1>
                 <Typewriter
                  options={{
                     strings : ["My technical level"],
@@ -18,7 +18,7 @@ export default function Skills({darkMode}){
                  }}
                 />
             </div>
-            <div className="w-2/3 text-wrap font-sourGummy">
+            <div className="hidden w-2/3 text-wrap lg:block">
             I am a developer skilled in HTML, CSS, Tailwind CSS, JavaScript, and React, creating visually appealing and responsive web applications. With a strong foundation in C, C++, and Data Structures & Algorithms (DSA), I have honed my problem-solving skills by tackling challenges on platforms like LeetCode. Additionally, I have experience in SQL for database management, enabling efficient data handling and storage solutions. 
             </div>
             <div className="flex flex-wrap gap-10 w-1/2 justify-center">
