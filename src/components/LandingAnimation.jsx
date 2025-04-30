@@ -30,7 +30,7 @@ export default function LandingAnimation() {
   }, []);
   
   return (
-    <div className={`fixed inset-0 flex items-center justify-center bg-yellow-200 z-50 
+    <div className={`fixed inset-0 flex items-center justify-center bg-black z-50 
       transition-opacity duration-1000 ${startExitAnimation ? 'opacity-0' : 'opacity-100'}`}>
       <div className="text-center">
         <div className="flex justify-center items-center mb-6 relative">
