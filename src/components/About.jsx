@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 
 const About = ({ darkMode }) => {
   return (
-    <div className="flex flex-col flex-wrap items-center font-marker gap-10">
-      <div className={`text-3xl ${darkMode ? 'text-orange-200' : 'text-black'}`}>
+    <div className="flex flex-col flex-wrap items-center gap-10">
+      <div className={`text-3xl ${darkMode ? 'text-red-600' : 'text-red-600'}`}>
         <Typewriter
           options={{
             strings: ["About me"],
@@ -41,8 +41,8 @@ const About = ({ darkMode }) => {
       >
         <div className={`items-center flex flex-wrap flex-col gap-1 justify-evenly py-1 hover:text-red-600  rounded-lg ${darkMode ? 'bg-orange-200 text-black' : 'bg-black text-yellow-100'} px-20`}>
           <h1>~Experience~</h1>
-          <h1>Rubiks Club , MBC, Manit Bhopal</h1>
-          <h1>Jan 25 to present</h1>
+          <h1>Rubiks cube , MBC, Manit Bhopal</h1>
+          <h1>Jan 25 to Apl 24</h1>
         </div>
       </motion.div>
       <motion.div
