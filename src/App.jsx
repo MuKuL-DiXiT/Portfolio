@@ -10,14 +10,14 @@ import Home from "./components/Home";
 import LandingAnimation from "./components/LandingAnimation";
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [showLanding, setShowLanding] = useState(true);
 
   useEffect(() => {
     // Remove landing after animation completes (3s display + 1.2s fade out)
     const timer = setTimeout(() => {
       setShowLanding(false);
-    }, 4200);
+    }, 4500);
     
     return () => clearTimeout(timer);
   }, []);
