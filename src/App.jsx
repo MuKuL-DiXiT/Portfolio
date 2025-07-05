@@ -27,7 +27,7 @@ export default function App() {
       {showLanding && <LandingAnimation />}
       
       <div
-        className={`transition-colors duration-1000 flex flex-col min-h-screen ${
+        className={`transition-colors duration-1000 justify-between flex flex-col min-h-screen ${
           darkMode ? 'bg-[url("/bg.gif")] bg-cover bg-center' : ''
         } border-x-8 border-black`}
       >
