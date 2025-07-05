@@ -18,7 +18,13 @@ export default {
       },
       animation: {
         fadeIn: 'fadeIn 1s ease-out forwards'
-      }
+      },
+      transitionProperty: {
+        'theme': 'background-color, color, border-color',
+      },
+      transitionDuration: {
+        'theme': '400ms',
+      },
     },
   },
   plugins: [],
