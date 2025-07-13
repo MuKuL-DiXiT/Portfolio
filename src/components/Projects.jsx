@@ -2,6 +2,7 @@ import { React, useState } from "react";
 import { FaReact, FaCss3, FaJs, FaHtml5 } from "react-icons/fa";
 import { SiExpress, SiMongodb, SiMongoose, SiSocketdotio } from "react-icons/si";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { SiFirebase } from "react-icons/si";
 
 export default function ProjectSlideshow({ darkMode = false }) {
     const [activeIndex, setActiveIndex] = useState(0);
@@ -31,6 +32,23 @@ export default function ProjectSlideshow({ darkMode = false }) {
             ],
             liveLink: "https://futures-hope.vercel.app/",
             iframeSrc: "https://futures-hope.vercel.app/",
+        },
+        {
+            title: "Money Mint",
+            description: "Money Mint helps users smartly track their daily expenses with clean visual insights. Built with Firebase for real-time updates and a polished UI focused on ease, speed, and clarity — it’s your minimalist pocket accountant.",
+            features: [
+            "🔄 Real-time expense tracking (Firebase)",
+            "📊 Simple, intuitive UI for daily budgeting",
+            "⚡ Built in under a week to improve frontend + backend integration skills",
+            "💸 Focused on clarity, minimal clicks, and instant edits"
+            ],
+            technologies: [
+                <FaReact className="text-5xl text-sky-400" />,
+                <SiFirebase size={30} color="#FFCA28" />
+                <img src="/tailwind.svg" alt="Tailwind" className="w-16" />,
+            ],
+            liveLink: "https://money-mint-ten.vercel.app/",
+            iframeSrc: "https://money-mint-ten.vercel.app/",
         },
         {
             title: "Mausam",
