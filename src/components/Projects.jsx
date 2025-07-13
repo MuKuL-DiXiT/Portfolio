@@ -22,11 +22,11 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 "Mobile and desktop responsive UI with dark mode support"
             ],
             technologies: [
-                <SiExpress className="text-5xl text-black" />,
+                <SiExpress className={`text-5xl ${(dark)?"text-white":"text-black"}`} />,
                 <SiMongodb className="text-5xl text-green-700" />,
                 <SiMongoose className="text-5xl text-red-600" />,
                 <FaReact className="text-5xl text-sky-400" />,
-                <SiSocketdotio className="text-5xl text-black" />,
+                <SiSocketdotio className={`text-5xl ${(dark)?"text-white":"text-black"}`} />,
                 <img src="/tailwind.svg" alt="Tailwind" className="w-16" />,
                 <FaHtml5 className="text-5xl text-red-700" />,
             ],
@@ -44,7 +44,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
             ],
             technologies: [
                 <FaReact className="text-5xl text-sky-400" />,
-                <SiFirebase size={30} color="#FFCA28" />
+                <SiFirebase size={30} color="#FFCA28" />,
                 <img src="/tailwind.svg" alt="Tailwind" className="w-16" />,
             ],
             liveLink: "https://money-mint-ten.vercel.app/",
