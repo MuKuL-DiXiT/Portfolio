@@ -44,7 +44,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
             ],
             technologies: [
                 <FaReact className="text-5xl text-sky-400" />,
-                <SiFirebase size={30} color="#FFCA28" />,
+                <SiFirebase size={48} color="#FFCA28" />,
                 <img src="/tailwind.svg" alt="Tailwind" className="w-16" />,
             ],
             liveLink: "https://money-mint-ten.vercel.app/",
