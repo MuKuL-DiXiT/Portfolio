@@ -1,47 +1,40 @@
-import React, { useState, useEffect } from "react";
-import { NavLink, Link } from "react-router-dom";
-import { Home, User, Code, Folder, Contact, Sun, Moon, Menu } from "lucide-react";
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { Home, User, Code, Folder, Contact, Sun, Moon } from "lucide-react";
 
 export default function Navbar({ darkMode, setDarkMode }) {
-    const navClass  = ({ isActive }) => `flex items-center ml-3 gap-4 ${isActive && 'text-red-600'}`;
+    const navClass = ({ isActive }) =>
+        `flex items-center gap-2 sm:gap-3 ${isActive ? "text-red-600" : ""}`;
+
     return (
-        <div className={`mt-5 border-b-2 flex-wrap ${darkMode ? 'text-orange-200 border-b-orange-200' : 'text-black border-b-black'} flex justify-evenly rounded-full `}>
-            <div className="font-marker text-3xl text-red-600">
-<NavLink to="/" className={navClass}>
+        <div className="fixed top-0 left-0 w-full z-50 mt-3">
+            <div className={`border-b-2 px-4 py-2 flex justify-between items-center ${darkMode ? 'text-orange-200 border-b-orange-200' : 'text-black border-b-black'}`}>
+                
+                {/* Brand Name */}
+                <div className="font-marker text-3xl text-red-600">
+                    <NavLink to="/" className={navClass}>
                         MD
                     </NavLink>
-            </div>
-            <div className="flex flex-wrap justify-center mt-1 sm:gap-10 md:gap-8 lg:gap-5 items-baseline">
-                <div>
-                    <NavLink to="/" className={navClass}>
-                        <Home />
-                    </NavLink>
                 </div>
-                <div>
-                    <NavLink to="/Skills" className={navClass}>
-                        <Code />
-                    </NavLink>
+
+                {/* Capsule Nav Links */}
+                <div className={`${darkMode?"bg-orange-100 text-black":"bg-black text-white"} rounded-full px-4 py-2 flex items-center flex-wrap justify-center gap-2 sm:gap-6 lg:gap-10 transition-all`}>
+                    <NavLink to="/" className={navClass}><Home /></NavLink>
+                    <NavLink to="/Skills" className={navClass}><Code /></NavLink>
+                    <NavLink to="/Projects" className={navClass}><Folder /></NavLink>
+                    <NavLink to="/Contacts" className={navClass}><Contact /></NavLink>
+                    <NavLink to="/About" className={navClass}><User /></NavLink>
                 </div>
+
+                {/* Dark Mode Toggle */}
                 <div>
-                    <NavLink to="/Projects" className={navClass}>
-                        <Folder />
-                    </NavLink>
+                    <button
+                        onClick={() => setDarkMode(!darkMode)}
+                        className="rounded-full duration-500 transition-colors"
+                    >
+                        {darkMode ? <Sun /> : <Moon />}
+                    </button>
                 </div>
-                <div>
-                    <NavLink to="/Contacts" className={navClass}>
-                        <Contact />
-                    </NavLink>
-                </div>
-                <div>
-                    <NavLink to="/About" className={navClass}>
-                        <User />
-                    </NavLink>
-                </div>
-            </div>
-            <div>
-                <button onClick={() => setDarkMode(!darkMode)} className="mb-6 mt-1 rounded-full duration-1000 transition-colors">
-                    {darkMode ? <Sun/> : <Moon/>}
-                </button>
             </div>
         </div>
     );

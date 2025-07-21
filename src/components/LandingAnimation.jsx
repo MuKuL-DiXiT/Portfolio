@@ -23,14 +23,14 @@ export default function LandingAnimation() {
       setTimeout(() => setAnimationStage(2), 800),  // D appears 
       setTimeout(() => setAnimationStage(3), 1200), // Line appears
       setTimeout(() => setAnimationStage(4), 1600), // Text appears
-      setTimeout(() => setStartExitAnimation(true), 3000) // Start exit animation
+      setTimeout(() => setStartExitAnimation(true), 2000) // Start exit animation
     ];
     
     return () => timers.forEach(timer => clearTimeout(timer));
   }, []);
   
   return (
-    <div className={`fixed inset-0 flex items-center justify-center bg-black z-50 
+    <div className={`fixed inset-0 flex items-center justify-center z-50 
       transition-opacity duration-1000 ${startExitAnimation ? 'opacity-0' : 'opacity-100'}`}>
       <div className="text-center">
         <div className="flex justify-center items-center mb-6 relative">

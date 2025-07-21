@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, useLocation } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import About from "./components/About";
 import Skills from "./components/Skills";
@@ -8,28 +8,28 @@ import Contacts from "./components/Contacts";
 import Footer from "./components/Footer";
 import Home from "./components/Home";
 import LandingAnimation from "./components/LandingAnimation";
-
-export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
-  const [showLanding, setShowLanding] = useState(true);
-
-  useEffect(() => {
-    // Remove landing after animation completes (3s display + 1.2s fade out)
-    const timer = setTimeout(() => {
-      setShowLanding(false);
-    }, 4500);
-    
-    return () => clearTimeout(timer);
-  }, []);
+function AppContent({ darkMode, setDarkMode, showLanding }) {
+  const location = useLocation();
 
   return (
-    <Router>
+    <>
       {showLanding && <LandingAnimation />}
-      
+
+      {darkMode && <video
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="fixed top-0 left-0 w-full h-full object-cover z-[-1]"
+      >
+        <source src="/bgVideo.mp4" type="video/mp4" />
+      </video>}
+
+      {/* ✅ Main content wrapper */}
       <div
-        className={`transition-colors duration-1000 flex flex-col min-h-screen ${
-          darkMode ? 'bg-[url("/bg.gif")] bg-cover bg-center' : ''
-        } border-x-8 border-black`}
+        className={`transition-colors duration-1000 justify-between flex flex-col min-h-screen border-x-8 border-black ${
+          darkMode ? "text-white" : "text-black"
+        }`}
       >
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
@@ -39,8 +39,27 @@ export default function App() {
           <Route path="/Projects" element={<Projects darkMode={darkMode} />} />
           <Route path="/Contacts" element={<Contacts darkMode={darkMode} />} />
         </Routes>
-        <Footer darkMode={darkMode} />
+        {location.pathname !== "/" && <Footer darkMode={darkMode} />}
       </div>
+    </>
+  );
+}
+
+export default function App() {
+  const [darkMode, setDarkMode] = useState(false);
+  const [showLanding, setShowLanding] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLanding(false);
+    }, 4500);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  return (
+    <Router>
+      <AppContent darkMode={darkMode} setDarkMode={setDarkMode} showLanding={showLanding} />
     </Router>
   );
 }
