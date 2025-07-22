@@ -30,7 +30,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
             ],
             liveLink: "https://futures-hope.vercel.app/",
-            iframeSrc: "https://futures-hope.vercel.app/",
+            thumbnail: "/future'shope.png",
         },
         {
             title: "Money Mint",
@@ -47,7 +47,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "tailwind", icon: <img src="/tailwind.svg" alt="Tailwind" className="w-16" /> },
             ],
             liveLink: "https://money-mint-ten.vercel.app/",
-            iframeSrc: "https://money-mint-ten.vercel.app/",
+            thumbnail: "/moneyMint.png",
         },
         {
             title: "Mausam",
@@ -63,7 +63,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
             ],
             liveLink: "https://mukul-dixit.github.io/Mausam/",
-            iframeSrc: "https://mukul-dixit.github.io/Mausam/",
+            thumbnail: "/mausam.png",
         },
         {
             title: "Cosmic RPS",
@@ -74,7 +74,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
             ],
             liveLink: "https://mukul-dixit.github.io/RPS/",
-            iframeSrc: "https://mukul-dixit.github.io/RPS/",
+            thumbnail: "/RPS.png",
         },
         {
             title: "Rubiks Club",
@@ -85,7 +85,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
             ],
             liveLink: "https://mukul-rubiks.netlify.app/",
-            iframeSrc: "https://mukul-rubiks.netlify.app/",
+            thumbnail: "/Rubiks.png",
         },
     ];
 
@@ -116,133 +116,130 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 minHeight: 'calc(100vh - 120px)', // Account for navbar and footer
             }}>
                 <button
-                onClick={prevSlide}
-                className={`absolute left-4 z-30 p-3 rounded-full transition-all duration-300 hover:scale-110 ${darkMode
-                    ? 'bg-orange-900/50 text-orange-200 hover:bg-orange-800/70'
-                    : 'bg-gray-200/50 text-gray-800 hover:bg-gray-300/70'
-                    }`}
-            >
-                <FaArrowLeft className="text-2xl" />
-            </button>
+                    onClick={prevSlide}
+                    className={`absolute left-4 z-30 p-3 rounded-full transition-all duration-300 hover:scale-110 ${darkMode
+                        ? 'bg-orange-900/50 text-orange-200 hover:bg-orange-800/70'
+                        : 'bg-gray-200/50 text-gray-800 hover:bg-gray-300/70'
+                        }`}
+                >
+                    <FaArrowLeft className="text-2xl" />
+                </button>
 
-            <button
-                onClick={nextSlide}
-                className={`absolute right-4 z-30 p-3 rounded-full transition-all duration-300 hover:scale-110 ${darkMode
-                    ? 'bg-orange-900/50 text-orange-200 hover:bg-orange-800/70'
-                    : 'bg-gray-200/50 text-gray-800 hover:bg-gray-300/70'
-                    }`}
-            >
-                <FaArrowRight className="text-2xl" />
-            </button>
+                <button
+                    onClick={nextSlide}
+                    className={`absolute right-4 z-30 p-3 rounded-full transition-all duration-300 hover:scale-110 ${darkMode
+                        ? 'bg-orange-900/50 text-orange-200 hover:bg-orange-800/70'
+                        : 'bg-gray-200/50 text-gray-800 hover:bg-gray-300/70'
+                        }`}
+                >
+                    <FaArrowRight className="text-2xl" />
+                </button>
 
-            {/* Slideshow Container */}
-            <div className="relative w-full max-w-6xl h-[80vh] flex items-center justify-center overflow-hidden">
-                {projects.map((project, index) => {
-                    const diff = (index - activeIndex + projects.length) % projects.length;
-                    const isActive = index === activeIndex;
-                    const isLeft = (diff === projects.length - 1);
-                    const isRight = (diff === 1);
+                {/* Slideshow Container */}
+                <div className="relative w-full max-w-6xl h-[80vh] flex items-center justify-center overflow-hidden">
+                    {projects.map((project, index) => {
+                        const diff = (index - activeIndex + projects.length) % projects.length;
+                        const isActive = index === activeIndex;
+                        const isLeft = (diff === projects.length - 1);
+                        const isRight = (diff === 1);
 
-                    if (!isActive && !isLeft && !isRight) return null;
+                        if (!isActive && !isLeft && !isRight) return null;
 
-                    return (
-                        <div
-                            key={index}
-                            className={`transition-all duration-700 ease-in-out absolute ${isActive
+                        return (
+                            <div
+                                key={index}
+                                className={`transition-all duration-700 ease-in-out absolute ${isActive
                                     ? 'z-20 scale-100 opacity-100 translate-x-0'
                                     : isLeft
                                         ? '-translate-x-full scale-90 opacity-40 z-10 blur-[2px]'
                                         : 'translate-x-full scale-90 opacity-40 z-10 blur-[2px]'
-                                }`}
-                            style={{
-                                width: isActive ? '90%' : '70%',
-                                maxWidth: isActive ? '750px' : '500px',
-                                height: '100%',
-                            }}
-                        >
-                            <div
-                                className={`flex flex-col h-full rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg bg-opacity-50 border ${darkMode
+                                    }`}
+                                style={{
+                                    width: isActive ? '90%' : '70%',
+                                    maxWidth: isActive ? '8000px' : '500px',
+                                    height: '100%',
+                                }}
+                            >
+                                <div
+                                    className={`flex flex-col h-full rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg bg-opacity-50 border ${darkMode
                                         ? 'bg-white/40 text-white shadow-orange-900/30'
                                         : 'bg-black/60 text-black border-gray-300 shadow-gray-400/40'
-                                    }`}
-                            >
-                                {/* Header */}
-                                <div className="p-4 text-center border-b border-opacity-20 border-current">
-                                    <h1 className="text-3xl font-bold font-['Sour_Gummy'] tracking-wide">{`${index + 1}. ${project.title}`}</h1>
-                                </div>
-
-                                {/* Scrollable Content */}
-                                <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                                    <p className="text-base leading-relaxed tracking-wide">{project.description}</p>
-
-                                    {project.features && (
-                                        <div>
-                                            <h3 className="font-semibold text-lg mb-2">✨ Features:</h3>
-                                            <ul className="list-disc list-inside text-sm space-y-1">
-                                                {project.features.map((f, i) => (
-                                                    <li key={i}>{f}</li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-
-                                    {/* Technologies */}
-                                    <div className="flex justify-center flex-wrap gap-4 mt-4">
-                                        {project.technologies.map((tech, i) => (
-                                            <div key={i} className="flex flex-col items-center gap-1 w-16">
-                                                <div className="transition-transform hover:scale-110">{tech.icon}</div>
-                                                <span className="text-xs text-center font-medium">{tech.name}</span>
-                                            </div>
-                                        ))}
+                                        }`}
+                                >
+                                    {/* Header */}
+                                    <div className="p-4 text-center border-b border-opacity-20 border-current">
+                                        <h1 className="text-3xl font-bold font-['Sour_Gummy'] tracking-wide">{`${index + 1}. ${project.title}`}</h1>
                                     </div>
 
-                                    {/* Embedded App - Minimal */}
-                                    <div className="rounded-xl overflow-hidden shadow-md border border-gray-300 aspect-[4/2] bg-black/80">
-                                        <iframe
-                                            src={project.iframeSrc}
-                                            className="w-full h-full border-0"
-                                            title={`${project.title} Demo`}
-                                            allowFullScreen
+                                    {/* Scrollable Content */}
+                                    <div className="flex-1 overflow-y-auto p-6 space-y-6">
+                                        <p className="text-base leading-relaxed tracking-wide">{project.description}</p>
+
+                                        {project.features && (
+                                            <div>
+                                                <h3 className="font-semibold text-lg mb-2">✨ Features:</h3>
+                                                <ul className="list-disc list-inside text-sm space-y-1">
+                                                    {project.features.map((f, i) => (
+                                                        <li key={i}>{f}</li>
+                                                    ))}
+                                                </ul>
+                                            </div>
+                                        )}
+
+                                        {/* Technologies */}
+                                        <div className="flex justify-center flex-wrap gap-4 mt-4">
+                                            {project.technologies.map((tech, i) => (
+                                                <div key={i} className="flex flex-col items-center gap-1 w-16">
+                                                    <div className="transition-transform hover:scale-110">{tech.icon}</div>
+                                                    <span className="text-xs text-center font-medium">{tech.name}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+
+                                        {/* thumbnail App - Minimal */}
+                                        <img
+                                            src={project.thumbnail}
+                                            alt={project.title}
+                                            className="w-full rounded-xl bg-cover animate-pulse"
                                             loading="lazy"
                                         />
                                     </div>
-                                </div>
 
-                                {/* Footer */}
-                                <div className="p-4 border-t border-opacity-20 border-current text-center">
-                                    <a
-                                        href={project.liveLink}
-                                        className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 shadow-md ${darkMode
+                                    {/* Footer */}
+                                    <div className="p-4 border-t border-opacity-20 border-current text-center">
+                                        <a
+                                            href={project.liveLink}
+                                            className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 shadow-md ${darkMode
                                                 ? 'bg-gradient-to-r from-amber-600 to-red-600 text-white hover:from-red-500 hover:to-amber-500'
                                                 : 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-500 hover:to-indigo-500'
-                                            }`}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                    >
-                                        🚀 View Live
-                                    </a>
+                                                }`}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                        >
+                                            🚀 View Live
+                                        </a>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    );
-                })}
-            </div>
-            {/* Slide Indicators */}
-            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
-                {projects.map((_, index) => (
-                    <button
-                        key={index}
-                        onClick={() => setActiveIndex(index)}
-                        className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex
-                            ? darkMode ? 'bg-orange-400' : 'bg-blue-500'
-                            : darkMode ? 'bg-orange-700/50' : 'bg-gray-400/50'
-                            }`}
-                    />
-                ))}
-            </div>
+                        );
+                    })}
+                </div>
+                {/* Slide Indicators */}
+                <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex space-x-2 z-30">
+                    {projects.map((_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => setActiveIndex(index)}
+                            className={`w-3 h-3 rounded-full transition-all duration-300 ${index === activeIndex
+                                ? darkMode ? 'bg-orange-400' : 'bg-blue-500'
+                                : darkMode ? 'bg-orange-700/50' : 'bg-gray-400/50'
+                                }`}
+                        />
+                    ))}
+                </div>
             </div>
             {/* Navigation Buttons */}
-            
+
         </div>
     );
 }
