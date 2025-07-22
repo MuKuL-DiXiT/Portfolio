@@ -15,21 +15,22 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
     <>
       {showLanding && <LandingAnimation />}
 
-      {darkMode && <video
+      <video
+        key={darkMode ? "dark" : "light"}
         autoPlay
         muted
         loop
         playsInline
         className="fixed top-0 left-0 w-full h-full object-cover z-[-1]"
       >
-        <source src="/bgVideo.mp4" type="video/mp4" />
-      </video>}
+        <source src={darkMode ? "/bgVideo.mp4" : "/bgWhite.mp4"} type="video/mp4" />
+      </video>
+
 
       {/* ✅ Main content wrapper */}
       <div
-        className={`transition-colors duration-1000 justify-between flex flex-col min-h-screen border-x-8 border-black ${
-          darkMode ? "text-white" : "text-black"
-        }`}
+        className={`transition-colors duration-1000 justify-between flex flex-col min-h-screen border-x-8 border-black ${darkMode ? "text-white" : "text-black"
+          }`}
       >
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
         <Routes>
