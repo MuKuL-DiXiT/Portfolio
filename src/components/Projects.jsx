@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useEffect, useState } from "react";
 import { FaReact, FaCss3, FaJs, FaHtml5 } from "react-icons/fa";
 import { SiExpress, SiMongodb, SiMongoose, SiSocketdotio } from "react-icons/si";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
@@ -96,6 +96,18 @@ export default function ProjectSlideshow({ darkMode = false }) {
     const prevSlide = () => {
         setActiveIndex((prev) => (prev - 1 + projects.length) % projects.length);
     };
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === 'ArrowRight') {
+                nextSlide();
+            }
+            if (e.key === 'ArrowLeft') {
+                prevSlide();
+            }
+        }
+        window.addEventListener('keydown', handleKeyDown);
+        return () => window.removeEventListener('keydown', handleKeyDown);
+    }, []);
 
     const getSlidePosition = (index) => {
         const diff = index - activeIndex;
