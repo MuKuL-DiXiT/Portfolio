@@ -85,10 +85,10 @@ export default function Home({ darkMode }) {
 
     function geod() {
         const points = [];
-        const totalPoints = 40;
+        const totalPoints = 25;
         for (let i = 0; i < totalPoints; i++) {
             const angle = (i / totalPoints) * Math.PI * 2;
-            const radius = 48 + Math.random() * 4;
+            const radius = 48 + Math.random() * 5;
             const x = radius * Math.sin(angle) + 50;
             const y = radius * Math.cos(angle) + 50;
             points.push(`${x}% ${y}%`);
