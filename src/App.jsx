@@ -58,7 +58,7 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
 }
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [showLanding, setShowLanding] = useState(true);
 
   useEffect(() => {
