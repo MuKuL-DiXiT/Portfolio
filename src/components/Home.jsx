@@ -99,7 +99,7 @@ export default function Home({ darkMode }) {
     return (
         <div
             ref={homeRef}
-            className={`transition-colors duration-1000 mt-24 lg:mt-64 md:m-32 m-5  sm:mx-6 md:mx-16 lg:mx-12 xl:mx-32 flex flex-wrap gap-10 item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
+            className={`transition-colors duration-1000 mt-24 lg:mt-32 md:m-32 m-5  sm:mx-6 md:mx-16 lg:mx-12 xl:mx-32 flex flex-wrap gap-10 item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
         >
             <div className="social-icons-container flex mt-8 md:mt-20 sm:flex-row md:flex-col lg:flex-col gap-7 items-center">
                 <a href="https://github.com/MuKuL-DiXiT" target='_blank' className="social-icon"><FaGithub className="text-xl hover:text-3xl hover:text-red-500 transition-colors duration-300 hover-glow" /></a>
@@ -134,7 +134,7 @@ export default function Home({ darkMode }) {
             </div>
 
             <div ref={textContentRef} className="flex flex-col gap-5 max-w-xl break-words text-center sm:text-center md:text-center lg:text-left sm:ml-8">
-                <div className={`sm:text-7xl text-4xl bg-clip-text bg-gradient-to-t text-transparent from-black to-red-600 ${darkMode && "from-white"}   animate-pulse`}>
+                <div className={`sm:text-7xl text-4xl bg-clip-text bg-gradient-to-t text-transparent from-black to-red-600 ${darkMode && "from-white"}`}>
                     <Typewriter
                         options={{
                             strings: ["Mukul Dixit"],
@@ -145,9 +145,11 @@ export default function Home({ darkMode }) {
                     />
                 </div>
 
-                <div className="text-lg">
-                    ----Web Developer | DSA Enthusiast <br />
-                    A passionate developer and creative thinker, I thrive on turning ideas into seamless web experiences.
+                <div className="text-sm">
+                    Learning by Building. Growing through Every Failure. <br />
+Every project teaches me something new. Every bug tests my patience. Every late-night debug session pushes me one step closer. I’m not there yet — but I’m showing up, leveling up, and moving forward every single day.
+
+
                 </div>
 
                 <div className="flex flex-col ml-8 sm:ml-0 w-12 gap-4 items-start">

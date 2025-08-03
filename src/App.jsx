@@ -25,22 +25,10 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
     <>
       {showLanding && <LandingAnimation />}
 
-      {/* Background video */}
-        <video
-          ref={videoRef}
-          key={videoSrc}
-          autoPlay
-          muted
-          loop
-          playsInline
-          className={`fixed top-0 left-0 w-full h-full object-cover z-[-1] transition-opacity duration-1000 ${fade ? 'opacity-0' : 'opacity-100'
-            }`}
-        >
-          <source src={videoSrc} type="video/mp4" />
-        </video>
+      
       {/* ✅ Main content wrapper */}
       <div
-        className={`transition-all duration-1000 justify-between flex flex-col min-h-screen border-x-8 border-black ${darkMode ? "text-white" : "text-black"
+        className={`transition-all duration-1000 justify-evenly flex flex-col min-h-screen border-x-8 border-black bg-gradient-to-tr ${darkMode ? "text-white from-black via-teal-950 to-black " : "text-black from-sky-300 via-white to-white"
           }`}
       >
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />

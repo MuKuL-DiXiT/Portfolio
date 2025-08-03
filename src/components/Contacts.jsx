@@ -35,13 +35,11 @@ export default function Contacts({ darkMode }) {
 
     return (
         <div ref={containerRef} className='w-full min-h-screen flex flex-col items-center px-6 pt-20 pb-12'>
-            <h2 className={`text-4xl mb-12 font-bold font-marker animate-pulse border-b-4 px-6 pb-2 ${darkMode ? "text-white border-white" : "text-black border-black"}`}>
-                Contact me
-            </h2>
+            
             <div className='w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12'>
                 {/* Contact Cards */}
                 <div className='flex flex-col gap-8 items-center'>
-                    <div className='text-xl text-red-600 font-semibold'>Talk to me</div>
+                    <div className='text-xl text-gray-600 font-semibold'>Talk to me</div>
                     {contact.map(({ card, href, icon, name, text }) => (
                         <div
                             key={card}
@@ -55,7 +53,7 @@ export default function Contacts({ darkMode }) {
                             }}
                         >
                             <a href={href} target='_blank' rel='noreferrer'>
-                                <div className={`flex flex-col items-center gap-2 py-5 rounded-lg transition-transform hover:scale-105 ${darkMode ? 'bg-orange-200 text-black' : 'bg-black text-yellow-100'} shadow-xl px-6`}>
+                                <div className={`flex flex-col items-center gap-2 py-5 rounded-lg transition-transform hover:scale-105 ${darkMode ? 'bg-gray-700/50 text-black' : 'bg-black text-yellow-100'} shadow-xl px-6`}>
                                     {icon}
                                     <div className='text-lg font'>{name}</div>
                                     <div className='text-sm '>{text}</div>
@@ -67,21 +65,21 @@ export default function Contacts({ darkMode }) {
 
                 {/* Suggestion Form */}
                 <div className='flex flex-col gap-8'>
-                    <div className='text-xl text-red-600 font-semibold text-center'>Your Suggestions</div>
-                    <form className={`${darkMode ? 'text-orange-200' : 'text-black'} flex flex-col gap-6`}>
-                        <fieldset className={`border-2 ${darkMode ? 'border-orange-200' : ' border-gray-500'} rounded-lg px-6 py-3`}>
+                    <div className='text-xl text-gray-600 font-semibold text-center'>Your Suggestions</div>
+                    <form className={`${darkMode ? 'text-gray-200' : 'text-black'} flex flex-col gap-6`}>
+                        <fieldset className={`border-2 ${darkMode ? 'border-gray-500' : ' border-gray-500'} rounded-lg px-6 py-3`}>
                             <legend>Name</legend>
                             <input type="text" placeholder='Insert your name' className='w-full bg-transparent focus:outline-none' required />
                         </fieldset>
-                        <fieldset className={`border-2 ${darkMode ? 'border-orange-200' : ' border-gray-500'} rounded-lg px-6 py-3`}>
+                        <fieldset className={`border-2 ${darkMode ? 'border-gray-500' : ' border-gray-500'} rounded-lg px-6 py-3`}>
                             <legend>Email</legend>
                             <input type="email" placeholder='Insert your email' className='w-full bg-transparent focus:outline-none' required />
                         </fieldset>
-                        <fieldset className={`border-2 ${darkMode ? 'border-orange-200' : ' border-gray-500'} rounded-lg px-6 py-3`}>
+                        <fieldset className={`border-2 ${darkMode ? 'border-gray-500' : ' border-gray-500'} rounded-lg px-6 py-3`}>
                             <legend>Feedback</legend>
                             <textarea placeholder='Your suggestions' rows={4} className='w-full bg-transparent focus:outline-none resize-none' required></textarea>
                         </fieldset>
-                        <button type='submit' className={`flex items-center justify-center gap-2 py-2 px-6 rounded-lg font-semibold text-red-600 transition-all duration-300 hover:scale-105 ${darkMode ? 'bg-orange-200 shadow-orange-900 hover:shadow-orange-300' : 'bg-black shadow-gray-700 hover:shadow-black'} shadow-lg`}>
+                        <button type='submit' className={`flex items-center justify-center gap-2 py-2 px-6 rounded-lg font-semibold  transition-all duration-300 hover:scale-105 ${darkMode ? 'bg-gray-700/50 shadow-black hover:shadow-black text-gray-200' : 'bg-black shadow-gray-700 hover:shadow-black text-white'} shadow-lg`}>
                             Submit <FaTelegram className='mt-1' />
                         </button>
                     </form>

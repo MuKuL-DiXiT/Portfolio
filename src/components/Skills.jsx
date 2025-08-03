@@ -44,10 +44,8 @@ export default function Skills({ darkMode }) {
     }, []);
 
     return (
-        <div ref={containerRef} className="w-full flex flex-col items-center py-10">
-            <h2 className={`text-4xl mb-10 mt-12 font-bold font-marker border-b-4 animate-pulse px-6 pb-2 ${darkMode ? "text-white border-white" : "text-black border-black"}`}>
-                My Skills
-            </h2>
+        <div ref={containerRef} className="w-full mt-10 flex flex-col items-center py-10">
+           
             <div className="flex flex-wrap justify-center gap-6 max-w-xl">
                 {skills.map((skill, idx) => (
                     <div

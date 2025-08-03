@@ -24,8 +24,8 @@ const InfoCard = ({ title, content, link, linkText, darkMode, isActive }) => {
       }}
       className={`flex flex-col items-center gap-2 p-4 md:p-6 rounded-2xl transition-all duration-300 overflow-hidden ${isActive
         ? darkMode
-          ? "bg-orange-200 text-red-600 shadow-lg shadow-orange-300"
-          : "bg-black text-red-600 shadow-lg shadow-gray-800"
+          ? "bg-gray-700 text-gray-200 shadow-lg shadow-gray-900"
+          : "bg-black text-white shadow-lg shadow-gray-800"
         : "opacity-0 max-h-0 p-0"
         }`}
     >
@@ -102,11 +102,9 @@ const About = ({ darkMode }) => {
   return (
     <div className="w-full flex flex-col items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
       {/* Heading */}
-      <h2 className={`text-4xl mb-8 mt-12 font-bold font-marker border-b-4 animate-pulse px-6 pb-2 ${darkMode ? "text-white border-white" : "text-black border-black"}`}>
-        About me
-      </h2>
+      
       <p className={`text-center text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>
-        Hey there! I'm <span className="font-bold bg-clip-text animate-pulse text-transparent bg-gradient-to-tr from-black via-purple-600 to-amber-700">Mukul Dixit</span>, a passionate full-stack developer currently pursuing my MCA from NIT Bhopal. I love building meaningful web applications, solving challenging problems, and creating polished user experiences.
+        Hey there! I'm <span className="font-bold bg-clip-text animate-pulse text-transparent bg-gradient-to-tr from-green-500 via-purple-600 to-amber-700">Mukul Dixit</span>, a passionate full-stack developer currently pursuing my MCA from NIT Bhopal. I love building meaningful web applications, solving challenging problems, and creating polished user experiences.
       </p>
 
       <div className="w-full flex flex-col md:flex-row md:justify-center items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
@@ -114,7 +112,7 @@ const About = ({ darkMode }) => {
         <div className="hidden md:block  max-w-4xl mt-8 relative">
           {/* Vertical line */}
           <div
-            className={`absolute left-8 top-0 bottom-0 w-1 rounded-full ${darkMode ? "bg-orange-200" : "bg-black"}`}
+            className={`absolute left-8 top-0 bottom-0 w-1 rounded-full ${darkMode ? "bg-black" : "bg-black"}`}
           ></div>
 
           {/* Timeline items */}
@@ -126,17 +124,17 @@ const About = ({ darkMode }) => {
                   <motion.div
                     className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer relative z-20 transition-all duration-300 ease-in-out ${activeCardIndex === index
                       ? darkMode
-                        ? "bg-orange-200 shadow-orange-300 shadow-lg"
+                        ? "bg-black shadow-gray-300 shadow-lg"
                         : "bg-black shadow-gray-800 shadow-lg"
                       : darkMode
-                        ? "bg-orange-200"
+                        ? "bg-black"
                         : "bg-black"
                       }`}
                     onClick={() => setActiveCardIndex(activeCardIndex === index ? null : index)}
                     whileHover={{ scale: 1.2 }}
                     whileTap={{ scale: 0.9 }}
                   >
-                    <span className={`font-semibold text-red-600`}>
+                    <span className={`font-semibold text-gray-400`}>
                       {index + 1}
                     </span>
                   </motion.div>
@@ -144,7 +142,7 @@ const About = ({ darkMode }) => {
                   {/* Pulse animation for active dot */}
                   {activeCardIndex === index && (
                     <motion.div
-                      className={`absolute inset-0 rounded-full animate-ping ${darkMode ? "bg-orange-200" : "bg-black"
+                      className={`absolute inset-0 rounded-full animate-ping ${darkMode ? "bg-black" : "bg-black"
                         }`}
                       transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                     />
@@ -153,7 +151,7 @@ const About = ({ darkMode }) => {
 
                 {/* Heading beside the point */}
                 <div
-                  className={`text-left cursor-pointer ${darkMode ? "text-orange-200" : "text-black"}`}
+                  className={`text-left cursor-pointer ${darkMode ? "text-gray-400" : "text-black"}`}
                   onClick={() => setActiveCardIndex(activeCardIndex === index ? null : index)}
                 >
                   <h3 className="font-bold text-xl">
@@ -169,7 +167,7 @@ const About = ({ darkMode }) => {
         <div className="md:hidden w-full max-w-2xl mt-8 relative">
           {/* Horizontal line */}
           <div
-            className={`absolute left-8 right-8 h-1 rounded-full ${darkMode ? "bg-orange-200" : "bg-black"}`}
+            className={`absolute left-8 right-8 h-1 rounded-full bg-black`}
           ></div>
 
           {/* Points on the line */}
@@ -179,24 +177,24 @@ const About = ({ darkMode }) => {
                 key={index}
                 className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer relative z-20 transition-all duration-300 ease-in-out ${activeCardIndex === index
                   ? darkMode
-                    ? "bg-orange-200 shadow-orange-300 shadow-lg"
+                    ? "bg-black shadow-black shadow-lg"
                     : "bg-black shadow-gray-800 shadow-lg"
                   : darkMode
-                    ? "bg-orange-200"
+                    ? "bg-black"
                     : "bg-black"
                   }`}
                 onClick={() => setActiveCardIndex(activeCardIndex === index ? null : index)}
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <span className={`font-semibold text-red-600`}>
+                <span className={`font-semibold text-gray-400`}>
                   {index + 1}
                 </span>
 
                 {/* Pulse animation for active dot */}
                 {activeCardIndex === index && (
                   <motion.div
-                    className={`absolute inset-0 rounded-full animate-ping ${darkMode ? "bg-orange-200" : "bg-black"
+                    className={`absolute inset-0 rounded-full animate-ping ${darkMode ? "bg-black" : "bg-black"
                       }`}
                     transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
                   />
@@ -210,7 +208,7 @@ const About = ({ darkMode }) => {
             {cardData.map((card, index) => (
               <div
                 key={index}
-                className={`text-xs text-center cursor-pointer ${darkMode ? "text-orange-200" : "text-red-600"}`}
+                className={`text-xs text-center cursor-pointer ${darkMode ? "text-gray-400" : "text-black"}`}
                 onClick={() => setActiveCardIndex(activeCardIndex === index ? null : index)}
               >
                 {card.miniContent}

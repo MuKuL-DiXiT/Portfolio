@@ -121,9 +121,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-center relative">
-            <h2 className={`text-4xl mb-4 mt-20 font-bold font-marker border-b-4 animate-pulse px-6 pb-2 ${darkMode ? "text-white border-white" : "text-black border-black"}`}>
-                My Work
-            </h2>
+            
             <div className="w-full flex items-center justify-center overflow-hidden relative" style={{
                 minHeight: 'calc(100vh - 120px)', // Account for navbar and footer
             }}>
@@ -174,8 +172,8 @@ export default function ProjectSlideshow({ darkMode = false }) {
                             >
                                 <div
                                     className={`flex flex-col h-full rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg bg-opacity-50 border ${darkMode
-                                        ? 'bg-white/40 text-white shadow-orange-900/30'
-                                        : 'bg-black/60 text-black border-gray-300 shadow-gray-400/40'
+                                        ? 'bg-black text-white border-gray-800 shadow-orange-900/30'
+                                        : 'bg-white text-black border-gray-300 shadow-gray-400/40'
                                         }`}
                                 >
                                     {/* Header */}
@@ -212,7 +210,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                                         <img
                                             src={project.thumbnail}
                                             alt={project.title}
-                                            className="w-full rounded-xl bg-cover animate-pulse"
+                                            className="w-full rounded-xl bg-cover "
                                             loading="lazy"
                                         />
                                     </div>
