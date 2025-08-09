@@ -108,7 +108,7 @@ export default function Home({ darkMode }) {
                 <a href="https://www.instagram.com/mukul____dixit/" target='_blank' className="social-icon"><SiLeetcode className="text-xl hover:text-3xl hover:text-amber-600 transition-colors duration-300 hover-glow" /></a>
             </div>
 
-            <div className="relative lg:mt-10 max-w-72 max-h-72">
+            {/* <div className="relative lg:mt-10 max-w-72 max-h-72">
                 <motion.img
                     ref={imageBorderRef}
                     src={darkMode ? "/fev.jpg" : "/back.jpg"}
@@ -131,6 +131,9 @@ export default function Home({ darkMode }) {
                     animate={{ clipPath: `polygon(${points})` }}
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
+            </div> */}
+            <div className={`profile_image h-48 w-48 sm:h-64 rounded-full sm:w-64 border-8 ${darkMode?"border-black":"border-black/50"}`}>
+
             </div>
 
             <div ref={textContentRef} className="flex flex-col gap-5 max-w-xl break-words text-center sm:text-center md:text-center lg:text-left sm:ml-8">
@@ -147,7 +150,7 @@ export default function Home({ darkMode }) {
 
                 <div className="text-sm">
                     Learning by Building. Growing through Every Failure. <br />
-Every project teaches me something new. Every bug tests my patience. Every late-night debug session pushes me one step closer. I’m not there yet — but I’m showing up, leveling up, and moving forward every single day.
+                    Every project teaches me something new. Every bug tests my patience. Every late-night debug session pushes me one step closer. I’m not there yet — but I’m showing up, leveling up, and moving forward every single day.
 
 
                 </div>
@@ -162,19 +165,19 @@ Every project teaches me something new. Every bug tests my patience. Every late-
                         onMouseEnter={() => setLinkedin(true)}
                         onMouseLeave={() => setLinkedin(false)}
                     >
-                        <div className={`px-4 sm:py-3 py-2.5 flex items-center justify-center transition-all duration-500 shadow-md animate-pulse sm:animate-none
+                        <div className={`px-4 sm:py-3 py-2.5 flex items-center justify-center transition-all duration-500 shadow-md 
                             ${linkedin ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full sm:rounded-full"}
                             ${darkMode ? "bg-sky-600 text-black hover:shadow-sky-700" : "bg-black text-sky-600 hover:shadow-black"} hover-glow`}>
                             <FaLinkedin className="text-xl z-10" />
                         </div>
                         <span
-  className={`
-    ml-2 block sm:hidden font-semibold text-sm px-3 py-2.5 rounded-r-full relative overflow-hidden animate-pulse
+                            className={`
+    ml-2 block sm:hidden font-semibold text-sm px-3 py-2.5 rounded-r-full relative overflow-hidden 
     ${darkMode ? "bg-sky-600 text-black" : "bg-black text-red-500"} shiny-frame
   `}
->
-  Let's connect
-</span>
+                        >
+                            Let's connect
+                        </span>
 
                         <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
                             rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
@@ -193,19 +196,19 @@ Every project teaches me something new. Every bug tests my patience. Every late-
                         onMouseEnter={() => setResume(true)}
                         onMouseLeave={() => setResume(false)}
                     >
-                        <div className={`px-4 py-2.5 sm:py-3 flex items-center justify-center transition-all duration-500 shadow-md animate-pulse sm:animate-none
+                        <div className={`px-4 py-2.5 sm:py-3 flex items-center justify-center transition-all duration-500 shadow-md 
                             ${resume ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full sm:rounded-full"}
                             ${darkMode ? "bg-amber-700 text-black hover:shadow-amber-600" : "bg-black text-amber-600 hover:shadow-black"} hover-glow`}>
                             <FaFileAlt className="text-xl z-10" />
                         </div>
-                       <span
-  className={`
-    ml-2 block sm:hidden font-semibold text-sm px-3 py-2.5 rounded-r-full relative overflow-hidden animate-pulse
-    ${darkMode ? "bg-amber-600 text-black" : "bg-black text-amber-600"} shiny-frame
+                        <span
+                            className={`
+    ml-2 block sm:hidden font-semibold text-sm px-3 py-2.5 rounded-r-full relative overflow-hidden 
+    ${darkMode ? "bg-amber-700 text-black" : "bg-black text-amber-600"} shiny-frame
   `}
->
-have a look</span>
-                     <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
+                        >
+                            have a look</span>
+                        <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
                             rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
                             ${darkMode ? "bg-amber-700 text-black shadow-amber-700" : "bg-black text-amber-600 shadow-black"}
                             ${resume ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>

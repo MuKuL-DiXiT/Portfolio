@@ -100,7 +100,7 @@ const About = ({ darkMode }) => {
   ];
 
   return (
-    <div className="w-full flex flex-col items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
+    <div className="w-full mt-16 flex flex-col items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
       {/* Heading */}
       
       <p className={`text-center text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>

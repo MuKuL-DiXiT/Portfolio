@@ -20,15 +20,13 @@ export default function Navbar({ darkMode, setDarkMode }) {
             {/* Top Navbar */}
             <div className={`px-4 py-3 flex justify-evenly items-center ${darkMode ? "text-white" : "text-black"}`}>
                 {/* Brand */}
-                <div className={`hidden md:flex text-3xl border-b-2 ${darkMode ? "border-white" : "border-black"}`}>
-                    <NavLink to="/">Mukul</NavLink>
-                </div>
+               
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-4">
                     <div
-                        className={`${darkMode ? "bg-white text-black" : "bg-black text-white"
-                            } rounded-full px-6 flex items-center flex-wrap justify-center gap-2 sm:gap-6 lg:gap-10 transition-all`}
+                        className={`${darkMode ? "border-white" : "border-black"
+                            } bg-black text-white border border-t-2 ml-10 rounded-full px-6 flex items-center flex-wrap justify-center gap-2 sm:gap-6 lg:gap-10 transition-all`}
                     >
                         {navItems.map(({ to, label, icon: Icon }) => (
                             <NavLink key={to} to={to} className={navClass}>
