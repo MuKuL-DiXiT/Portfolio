@@ -189,7 +189,7 @@ export default function Home({ darkMode }) {
 
                     {/* Resume Button */}
                     <a
-                        href="https://drive.google.com/file/d/1lNfypZk3JLntfbj1mmZ4n0Dpi-1VjMWS/view?usp=drive_link"
+                        href="https://drive.google.com/file/d/1uNq9QN-CE_-3N2P-yD2ajWos3aaqTGUh/view"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="relative inline-flex items-center w-max overflow-visible min-w-0 group"

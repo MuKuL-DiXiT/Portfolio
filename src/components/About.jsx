@@ -2,57 +2,78 @@ import React, { useState } from "react";
 import Typewriter from "typewriter-effect";
 import { motion, AnimatePresence } from "framer-motion";
 
-// Reusable Card Component
+// Calendar icon component
+const CalendarIcon = ({ darkMode }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    className={`inline-block w-5 h-5 mr-2 ${darkMode ? "text-gray-300" : "text-gray-700"}`}
+    fill="none"
+    viewBox="0 0 24 24"
+    stroke="currentColor"
+    strokeWidth={2}
+  >
+    <rect width={18} height={18} x={3} y={4} rx={2} ry={2} />
+    <path strokeLinecap="round" strokeLinejoin="round" d="M16 2v4M8 2v4M3 10h18" />
+  </svg>
+);
+
 const InfoCard = ({ title, content, link, linkText, darkMode, isActive }) => {
   return (
     <motion.div
-      initial={false}
-      animate={isActive ? "active" : "inactive"}
-      variants={{
-        active: {
-          opacity: 1,
-          height: "auto",
-          scale: 1,
-          transition: { duration: 0.5, ease: "easeOut" }
-        },
-        inactive: {
-          opacity: 0,
-          height: 0,
-          scale: 0.8,
-          transition: { duration: 0.3, ease: "easeIn" }
-        },
-      }}
-      className={`flex flex-col items-center gap-2 p-4 md:p-6 rounded-2xl transition-all duration-300 overflow-hidden ${isActive
-        ? darkMode
-          ? "bg-gray-700 text-gray-200 shadow-lg shadow-gray-900"
-          : "bg-black text-white shadow-lg shadow-gray-800"
-        : "opacity-0 max-h-0 p-0"
-        }`}
+      initial={{ opacity: 0, scale: 0.9, height: 0 }}
+      animate={
+        isActive
+          ? { opacity: 1, scale: 1, height: "auto", transition: { duration: 0.5, ease: "easeOut" } }
+          : { opacity: 0, scale: 0.9, height: 0, transition: { duration: 0.3, ease: "easeIn" } }
+      }
+      className={`
+        w-full max-w-md font-playwright mx-auto flex flex-col p-6 rounded-xl shadow-lg
+        overflow-hidden border
+        transition-colors duration-500
+        ${darkMode
+          ? "bg-black/50 border-gray-800 text-white/80"
+          : "bg-black/50 border-gray-200 text-gray-800"
+        }
+      `}
     >
       {isActive && (
         <>
-          {title && <h1 className="text-md md:text-lg font-bold">{title}</h1>}
-          {content.map((item, index) => (
-            <p key={index} className="text-sm md:text-base">{item}</p>
-          ))}
+          {title && (
+            <h2 className="text-xl md:text-2xl mb-4 border-b-2 border-black pb-2">
+              {title}
+            </h2>
+          )}
+          <div className="flex flex-col gap-3 mb-4">
+            {content.map((item, index) => {
+              // Detect if this item looks like a date range for adding calendar icon
+              const isDateRange = /\d{4} ?- ?\d{4}/.test(item);
+              return (
+                <p key={index} className="text-base md:text-lg leading-relaxed flex items-center">
+                  {isDateRange && <CalendarIcon darkMode={darkMode} />}
+                  {item}
+                </p>
+              );
+            })}
+          </div>
           {link && (
             <a
               href={link}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2"
+              className={`
+                inline-flex items-center gap-2 text-indigo-600 hover:text-indigo-800
+                font-medium text-base md:text-lg transition-colors duration-300
+              `}
             >
               {linkText === "LeetCode" ? (
                 <img
                   src="https://upload.wikimedia.org/wikipedia/commons/a/ab/LeetCode_logo_white_no_text.svg"
-                  alt="LeetCode Profile"
-                  className="w-10 h-10 md:w-12 md:h-12 rounded-full p-1 md:p-2 bg-black"
+                  alt="LeetCode Logo"
+                  className={`w-8 h-8 rounded-full p-1
+                    ${darkMode ? "bg-gray-900" : "bg-indigo-100"}`}
                 />
-              ) : (
-                <span className="text-blue-500 hover:underline text-sm md:text-base">
-                  {linkText}
-                </span>
-              )}
+              ) : null}
+              <span>{linkText}</span>
             </a>
           )}
         </>
@@ -66,105 +87,40 @@ const About = ({ darkMode }) => {
 
   const cardData = [
     {
-      title: "~ Graduation ~",
-      content: ["B.Sc. CS", "DBRAU Agra, UP"],
+      title: "Graduation",
+      content: ["B.Sc. CS", "DBRAU Agra, UP", "2020 - 2023"], // Added date range
       link: null,
       linkText: null,
       miniContent: "Graduation",
       miniIcon: null,
     },
     {
-      title: "~ Masters ~",
-      content: ["Masters in Computer Application", "MANIT Bhopal"],
+      title: "Masters",
+      content: ["Masters in Computer Applications", "MANIT Bhopal", "2024 - 2027"], // Added date range
       link: null,
       linkText: null,
       miniContent: "Masters",
       miniIcon: null,
     },
     {
-      title: "~ Experience ~",
+      title: "Experience",
       content: ["Rubiks Club, MBC, MANIT Bhopal", "Jan 25 to Present"],
       link: null,
       linkText: null,
       miniContent: "Experience",
       miniIcon: null,
     },
-    {
-      title: null,
-      content: ["DSA and Competitive Programming"],
-      link: "https://leetcode.com/mukul2427/",
-      linkText: "LeetCode",
-      miniContent: "LeetCode",
-      miniIcon: "leetcode",
-    },
   ];
 
   return (
     <div className="w-full mt-16 flex flex-col items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
-      {/* Heading */}
-      
-      <p className={`text-center text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>
-        Hey there! I'm <span className="font-bold bg-clip-text animate-pulse text-transparent bg-gradient-to-tr from-green-500 via-purple-600 to-amber-700">Mukul Dixit</span>, a passionate full-stack developer currently pursuing my MCA from NIT Bhopal. I love building meaningful web applications, solving challenging problems, and creating polished user experiences.
-      </p>
-
-      <div className="w-full flex flex-col md:flex-row md:justify-center items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
-        {/* Desktop: Vertical Timeline */}
-        <div className="hidden md:block  max-w-4xl mt-8 relative">
-          {/* Vertical line */}
-          <div
-            className={`absolute left-8 top-0 bottom-0 w-1 rounded-full ${darkMode ? "bg-black" : "bg-black"}`}
-          ></div>
-
-          {/* Timeline items */}
-          <div className="pl-20 space-y-12">
-            {cardData.map((card, index) => (
-              <div key={index} className="relative flex items-start gap-6">
-                {/* Point on the line */}
-                <div className="absolute -left-8 top-0 flex flex-col items-center">
-                  <motion.div
-                    className={`w-6 h-6 rounded-full flex items-center justify-center cursor-pointer relative z-20 transition-all duration-300 ease-in-out ${activeCardIndex === index
-                      ? darkMode
-                        ? "bg-black shadow-gray-300 shadow-lg"
-                        : "bg-black shadow-gray-800 shadow-lg"
-                      : darkMode
-                        ? "bg-black"
-                        : "bg-black"
-                      }`}
-                    onClick={() => setActiveCardIndex(activeCardIndex === index ? null : index)}
-                    whileHover={{ scale: 1.2 }}
-                    whileTap={{ scale: 0.9 }}
-                  >
-                    <span className={`font-semibold text-gray-400`}>
-                      {index + 1}
-                    </span>
-                  </motion.div>
-
-                  {/* Pulse animation for active dot */}
-                  {activeCardIndex === index && (
-                    <motion.div
-                      className={`absolute inset-0 rounded-full animate-ping ${darkMode ? "bg-black" : "bg-black"
-                        }`}
-                      transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                    />
-                  )}
-                </div>
-
-                {/* Heading beside the point */}
-                <div
-                  className={`text-left cursor-pointer ${darkMode ? "text-gray-400" : "text-black"}`}
-                  onClick={() => setActiveCardIndex(activeCardIndex === index ? null : index)}
-                >
-                  <h3 className="font-bold text-xl">
-                    {card.miniContent}
-                  </h3>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
+     
+      <div className="w-full flex flex-col md:justify-center items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
+       
+       
 
         {/* Mobile: Horizontal Timeline */}
-        <div className="md:hidden w-full max-w-2xl mt-8 relative">
+        <div className=" w-full max-w-2xl mt-8 relative">
           {/* Horizontal line */}
           <div
             className={`absolute left-8 right-8 h-1 rounded-full bg-black`}
@@ -234,6 +190,9 @@ const About = ({ darkMode }) => {
           </AnimatePresence>
         </div>
       </div>
+      <p className={`text-center text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>
+       I am a passionate full-stack developer dedicated to crafting innovative web solutions. With a love for problem-solving and a keen eye for detail, I strive to build seamless user experiences that are both functional and visually appealing. Constantly learning and adapting, I embrace challenges as opportunities to grow and push the boundaries of technology.
+      </p>
     </div>
   );
 };
