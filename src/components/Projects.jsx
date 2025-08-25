@@ -30,7 +30,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
             ],
             liveLink: "https://futures-hope.vercel.app/",
-            thumbnail: "/future'shope.png",
+            thumbnail: "/image.png",
         },
         {
             title: "Money Mint",
@@ -47,7 +47,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "tailwind", icon: <img src="/tailwind.svg" alt="Tailwind" className="w-16" /> },
             ],
             liveLink: "https://money-mint-ten.vercel.app/",
-            thumbnail: "/moneyMint.png",
+            thumbnail: "/image2.png",
         },
         {
             title: "Mausam",
@@ -64,28 +64,6 @@ export default function ProjectSlideshow({ darkMode = false }) {
             ],
             liveLink: "https://mukul-dixit.github.io/Mausam/",
             thumbnail: "/mausam.png",
-        },
-        {
-            title: "Cosmic RPS",
-            description: "Cosmic RPS is a fun game where you pick rock, paper, or scissors, and the computer does the same. The winner is decided based on simple rules: rock beats scissors, scissors beat paper, and paper beats rock! 🎮🔥",
-            technologies: [
-                { name: "css", icon: <FaCss3 className="text-5xl text-sky-400" /> },
-                { name: "java script", icon: <FaJs className="text-5xl text-yellow-500 rounded-2xl" /> },
-                { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
-            ],
-            liveLink: "https://mukul-dixit.github.io/RPS/",
-            thumbnail: "/RPS.png",
-        },
-        {
-            title: "Rubiks Club",
-            description: "It's a frontend demonstration of a sample website of Rubiks Club. It has a simple and clean design. The website has a home page, about page and a teams page.",
-            technologies: [
-                { name: "css", icon: <FaCss3 className="text-5xl text-sky-400" /> },
-                { name: "java script", icon: <FaJs className="text-5xl text-yellow-500 rounded-2xl" /> },
-                { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
-            ],
-            liveLink: "https://mukul-rubiks.netlify.app/",
-            thumbnail: "/Rubiks.png",
         },
     ];
 

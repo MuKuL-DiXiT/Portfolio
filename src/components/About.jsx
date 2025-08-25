@@ -96,7 +96,7 @@ const About = ({ darkMode }) => {
     },
     {
       title: "Masters",
-      content: ["Masters in Computer Applications", "MANIT Bhopal", "2024 - 2027"], // Added date range
+      content: ["Masters in Computer Applications", "MANIT Bhopal", "8.8 CGPA till 2nd semester", "2024 - 2027"], // Added date range
       link: null,
       linkText: null,
       miniContent: "Masters",
@@ -104,7 +104,7 @@ const About = ({ darkMode }) => {
     },
     {
       title: "Experience",
-      content: ["Rubiks Club, MBC, MANIT Bhopal", "Jan 25 to Present"],
+      content: ["Rubiks Club, MBC, MANIT Bhopal", "Jan 25 to Apr 25"], 
       link: null,
       linkText: null,
       miniContent: "Experience",
@@ -118,9 +118,9 @@ const About = ({ darkMode }) => {
       <div className="w-full flex flex-col md:justify-center items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
        
        
-
+       <h1 className="text-xs"><span className="text-xl">Timeline</span><br /> click below for details</h1>
         {/* Mobile: Horizontal Timeline */}
-        <div className=" w-full max-w-2xl mt-8 relative">
+        <div className=" w-full max-w-2xl relative">
           {/* Horizontal line */}
           <div
             className={`absolute left-8 right-8 h-1 rounded-full bg-black`}

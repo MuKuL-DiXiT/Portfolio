@@ -53,7 +53,7 @@ export default function Contacts({ darkMode }) {
                             }}
                         >
                             <a href={href} target='_blank' rel='noreferrer'>
-                                <div className={`flex flex-col items-center gap-2 py-5 rounded-lg transition-transform hover:scale-105 ${darkMode ? 'bg-gray-700/50 text-black' : 'bg-black text-yellow-100'} shadow-xl px-6`}>
+                                <div className={`flex flex-col items-center gap-2 py-5 rounded-lg transition-transform hover:scale-105 ${darkMode ? 'bg-white/30 text-white' : 'bg-black/30 text-black'} shadow-xl px-6`}>
                                     {icon}
                                     <div className='text-lg font'>{name}</div>
                                     <div className='text-sm '>{text}</div>

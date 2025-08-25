@@ -25,8 +25,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-4">
                     <div
-                        className={`${darkMode ? "border-white" : "border-black"
-                            } bg-black text-white border border-t-2 ml-10 rounded-full px-6 flex items-center flex-wrap justify-center gap-2 sm:gap-6 lg:gap-10 transition-all`}
+                        className={`${darkMode ? "border-white text-white" : "border-black text-black"
+                            }  border border-t-2 ml-10 rounded-full px-6 flex items-center flex-wrap justify-center gap-2 sm:gap-6 lg:gap-10 transition-all`}
                     >
                         {navItems.map(({ to, label, icon: Icon }) => (
                             <NavLink key={to} to={to} className={navClass}>

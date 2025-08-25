@@ -105,7 +105,7 @@ export default function Home({ darkMode }) {
                 <a href="https://github.com/MuKuL-DiXiT" target='_blank' className="social-icon"><FaGithub className="text-xl hover:text-3xl hover:text-red-500 transition-colors duration-300 hover-glow" /></a>
                 <a href="https://t.me/mukuldixit" target='_blank' className="social-icon"><FaTelegram className="text-xl hover:text-3xl hover:text-blue-400 transition-colors duration-300 hover-glow" /></a>
                 <a href="https://www.instagram.com/mukul____dixit/" target='_blank' className="social-icon"><FaInstagram className="text-xl hover:text-3xl hover:text-pink-500 transition-colors duration-300 hover-glow" /></a>
-                <a href="https://www.instagram.com/mukul____dixit/" target='_blank' className="social-icon"><SiLeetcode className="text-xl hover:text-3xl hover:text-amber-600 transition-colors duration-300 hover-glow" /></a>
+                <a href="https://leetcode.com/u/Mukul_1608/" target='_blank' className="social-icon"><SiLeetcode className="text-xl hover:text-3xl hover:text-amber-600 transition-colors duration-300 hover-glow" /></a>
             </div>
 
             {/* <div className="relative lg:mt-10 max-w-72 max-h-72">

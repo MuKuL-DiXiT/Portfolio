@@ -94,7 +94,7 @@ export default function Footer({ darkMode }) {
               <FaLinkedin size={24} />
             </a>
             <a
-              href="https://leetcode.com/mukul2427/"
+              href="https://leetcode.com/mukul_1608/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="LeetCode profile"
