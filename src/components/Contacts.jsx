@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from 'react';
-import { FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaTelegram } from 'react-icons/fa';
+import { FaLinkedin, FaInstagram, FaGithub, FaEnvelope, FaTelegram, FaWhatsapp } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import gsap from 'gsap';
 
 export default function Contacts({ darkMode }) {
     const [rotation, setRotation] = useState({});
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        feedback: ''
+    });
     const containerRef = useRef(null);
 
     useEffect(() => {
@@ -27,6 +32,43 @@ export default function Contacts({ darkMode }) {
         setRotation((prev) => ({ ...prev, [card]: { x: 0, y: 0 } }));
     }
 
+    const handleInputChange = (e) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({
+            ...prev,
+            [name]: value
+        }));
+    };
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        
+        // Validate form
+        if (!formData.name || !formData.email || !formData.feedback) {
+            alert('Please fill in all fields');
+            return;
+        }
+
+        // Create WhatsApp message
+        const message = `*New Portfolio Contact*%0A%0A*Name:* ${formData.name}%0A*Email:* ${formData.email}%0A%0A*Message:*%0A${formData.feedback}%0A%0A_Sent from mukuldixit.netlify.app_`;
+        
+        // Replace with your WhatsApp number (include country code without +)
+        const whatsappNumber = "+919104765356"; // Replace with your actual WhatsApp number
+        
+        // Create WhatsApp URL
+        const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+        
+        // Open WhatsApp
+        window.open(whatsappURL, '_blank');
+        
+        // Reset form
+        setFormData({
+            name: '',
+            email: '',
+            feedback: ''
+        });
+    };
+
     const contact = [
         { card: 1, href: "mailto:mukuldixit086@icloud.com", icon: <FaEnvelope className='text-red-500 text-3xl' />, name: "E - mail", text: "~Write to me~" },
         { card: 2, href: "https://www.linkedin.com/in/mukul-dixit-8b945227b/", icon: <FaLinkedin className='text-sky-600 text-3xl' />, name: "Linked In", text: "~Connect me~" },
@@ -34,7 +76,7 @@ export default function Contacts({ darkMode }) {
     ];
 
     return (
-        <div ref={containerRef} className='w-full min-h-screen flex flex-col items-center px-6 pt-20 pb-12'>
+        <div ref={containerRef} className='w-full h-screen flex flex-col items-center px-6 pt-20 pb-5'>
             
             <div className='w-full max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-12'>
                 {/* Contact Cards */}
@@ -53,7 +95,7 @@ export default function Contacts({ darkMode }) {
                             }}
                         >
                             <a href={href} target='_blank' rel='noreferrer'>
-                                <div className={`flex flex-col items-center gap-2 py-5 rounded-lg transition-transform hover:scale-105 ${darkMode ? 'bg-white/30 text-white' : 'bg-black/30 text-black'} shadow-xl px-6`}>
+                                <div className={`flex flex-col backdrop-blur-md items-center gap-2 py-5 rounded-2xl transition-transform hover:scale-105 ${darkMode ? ' bg-[#1F2937] text-white' : 'bg-white text-black'} shadow-xl px-6`}>
                                     {icon}
                                     <div className='text-lg font'>{name}</div>
                                     <div className='text-sm '>{text}</div>
@@ -66,21 +108,45 @@ export default function Contacts({ darkMode }) {
                 {/* Suggestion Form */}
                 <div className='flex flex-col gap-8'>
                     <div className='text-xl text-gray-600 font-semibold text-center'>Your Suggestions</div>
-                    <form className={`${darkMode ? 'text-gray-200' : 'text-black'} flex flex-col gap-6`}>
+                    <form onSubmit={handleSubmit} className={`${darkMode ? 'text-gray-200' : 'text-black'} flex flex-col gap-6`}>
                         <fieldset className={`border-2 ${darkMode ? 'border-gray-500' : ' border-gray-500'} rounded-lg px-6 py-3`}>
                             <legend>Name</legend>
-                            <input type="text" placeholder='Insert your name' className='w-full bg-transparent focus:outline-none' required />
+                            <input 
+                                type="text" 
+                                name="name"
+                                value={formData.name}
+                                onChange={handleInputChange}
+                                placeholder='Insert your name' 
+                                className='w-full bg-transparent focus:outline-none' 
+                                required 
+                            />
                         </fieldset>
                         <fieldset className={`border-2 ${darkMode ? 'border-gray-500' : ' border-gray-500'} rounded-lg px-6 py-3`}>
                             <legend>Email</legend>
-                            <input type="email" placeholder='Insert your email' className='w-full bg-transparent focus:outline-none' required />
+                            <input 
+                                type="email" 
+                                name="email"
+                                value={formData.email}
+                                onChange={handleInputChange}
+                                placeholder='Insert your email' 
+                                className='w-full bg-transparent focus:outline-none' 
+                                required 
+                            />
                         </fieldset>
                         <fieldset className={`border-2 ${darkMode ? 'border-gray-500' : ' border-gray-500'} rounded-lg px-6 py-3`}>
                             <legend>Feedback</legend>
-                            <textarea placeholder='Your suggestions' rows={4} className='w-full bg-transparent focus:outline-none resize-none' required></textarea>
+                            <textarea 
+                                name="feedback"
+                                value={formData.feedback}
+                                onChange={handleInputChange}
+                                placeholder='Your suggestions' 
+                                rows={4} 
+                                className='w-full bg-transparent focus:outline-none resize-none' 
+                                required
+                            ></textarea>
                         </fieldset>
-                        <button type='submit' className={`flex items-center justify-center gap-2 py-2 px-6 rounded-lg font-semibold  transition-all duration-300 hover:scale-105 ${darkMode ? 'bg-gray-700/50 shadow-black hover:shadow-black text-gray-200' : 'bg-black shadow-gray-700 hover:shadow-black text-white'} shadow-lg`}>
-                            Submit <FaTelegram className='mt-1' />
+                        <button type='submit' className={`flex items-center justify-center gap-2 py-2 px-6 rounded-lg font-semibold  transition-all duration-300 hover:scale-105 ${darkMode ? 'bg-green-700/50 hover:bg-green-600/70 text-green-100' : 'bg-green-600 hover:bg-green-700 text-white'} shadow-lg`}>
+                            Send to WhatsApp <FaWhatsapp className='mt-1' />
                         </button>
                     </form>
                 </div>

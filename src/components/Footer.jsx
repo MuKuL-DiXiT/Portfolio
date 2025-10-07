@@ -41,39 +41,36 @@ export default function Footer({ darkMode }) {
           </p>
         </section>
 
-        {/* Quick Links */}
-        <nav
-          aria-label="Quick navigation links"
+        {/* Keyboard Shortcuts */}
+        <section
+          aria-label="Keyboard shortcuts"
           className="w-1/2 sm:w-1/3 md:w-auto"
         >
-          <h3 className="font-semibold text-lg mb-5">Quick Links</h3>
-          <ul className="space-y-1 text-sm opacity-90">
+          <h3 className="font-semibold text-lg mb-5">⌨️ Shortcuts</h3>
+          <div className="space-y-2 text-sm opacity-90">
             {[
-              { to: "/", label: "Home" },
-              { to: "/Skills", label: "Skills" },
-              { to: "/About", label: "About" },
-              { to: "/projects", label: "Projects" },
-              { to: "/Contacts", label: "Contact" },
-            ].map(({ to, label }) => (
-              <li key={to}>
-                <NavLink
-                  to={to}
-                  className={({ isActive }) =>
-                    `block hover:text-red-500 focus:outline-none focus:ring-2 focus:ring-red-400 rounded ${
-                      isActive ? "text-red-500 font-semibold" : ""
-                    }`
-                  }
-                >
-                  {label}
-                </NavLink>
-              </li>
+              { keys: "Shift + H", action: "Home" },
+              { keys: "Shift + S", action: "Skills" },
+              { keys: "Shift + A", action: "About" },
+              { keys: "Shift + P", action: "Projects" },
+              { keys: "Shift + C", action: "Contact" },
+              { keys: "Shift + M", action: "Toggle Dark Mode" },
+            ].map(({ keys, action }) => (
+              <div key={keys} className="flex items-center justify-between gap-3">
+                <span className="text-xs opacity-70">{action}</span>
+                <code className={`px-2 py-1 rounded text-xs font-mono ${
+                  darkMode ? 'bg-gray-800 text-gray-300' : 'bg-gray-200 text-gray-800'
+                }`}>
+                  {keys}
+                </code>
+              </div>
             ))}
-          </ul>
-        </nav>
+          </div>
+        </section>
 
         {/* Social Media Links */}
         <section aria-label="Social media links" className="w-full md:w-auto">
-          <h3 className="font-semibold text-lg mb-5">Follow Me</h3>
+          <h3 className="font-semibold text-lg mb-5">Connect</h3>
           <div className="flex gap-6">
             <a
               href="https://github.com/MuKuL-DiXiT"

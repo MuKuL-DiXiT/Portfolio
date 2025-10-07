@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
-import { FaReact, FaCss3, FaJs, FaHtml5 } from "react-icons/fa";
-import { SiExpress, SiMongodb, SiMongoose, SiSocketdotio } from "react-icons/si";
+import { FaReact, FaCss3, FaJs, FaHtml5, FaHammer } from "react-icons/fa";
+import { SiExpress, SiMongodb, SiMongoose, SiSocketdotio, SiTailwindcss } from "react-icons/si";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { SiFirebase } from "react-icons/si";
 
@@ -22,12 +22,11 @@ export default function ProjectSlideshow({ darkMode = false }) {
             ],
             technologies: [
                 { name: "express", icon: <SiExpress className={`text-5xl ${(darkMode) ? "text-white" : "text-black"}`} /> },
-                { name: "express", icon: <SiMongodb className="text-5xl text-green-700" /> },
-                { name: "mongo db", icon: <SiMongoose className="text-5xl text-red-600" /> },
-                { name: "mongoose", icon: <FaReact className="text-5xl text-sky-400" /> },
+                { name: "MongoDB", icon: <SiMongodb className="text-5xl text-green-700" /> },
+                { name: "Mongoose", icon: <SiMongoose className="text-5xl text-red-600" /> },
+                { name: "React", icon: <FaReact className="text-5xl text-sky-400" /> },
                 { name: "socket.io", icon: <SiSocketdotio className={`text-5xl ${(darkMode) ? "text-white" : "text-black"}`} /> },
-                { name: "tailwind", icon: <img src="/tailwind.svg" alt="Tailwind" className="w-16" /> },
-                { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
+                { name: "tailwind", icon: <SiTailwindcss className="w-16" /> },
             ],
             liveLink: "https://futures-hope.vercel.app/",
             thumbnail: "/image.png",
@@ -36,15 +35,15 @@ export default function ProjectSlideshow({ darkMode = false }) {
             title: "Money Mint",
             description: "Money Mint helps users smartly track their daily expenses with clean visual insights. Built with Firebase for real-time updates and a polished UI focused on ease, speed, and clarity — it’s your minimalist pocket accountant.",
             features: [
-                "🔄 Real-time expense tracking (Firebase)",
-                "📊 Simple, intuitive UI for daily budgeting",
-                "⚡ Built in under a week to improve frontend + backend integration skills",
-                "💸 Focused on clarity, minimal clicks, and instant edits"
+                "Real-time expense tracking (Firebase)",
+                " Simple, intuitive UI for daily budgeting",
+                " Built in under a week to improve frontend + backend integration skills",
+                " Focused on clarity, minimal clicks, and instant edits"
             ],
             technologies: [
                 { name: "react", icon: <FaReact className="text-5xl text-sky-400" /> },
                 { name: "firebase", icon: <SiFirebase size={48} color="#FFCA28" /> },
-                { name: "tailwind", icon: <img src="/tailwind.svg" alt="Tailwind" className="w-16" /> },
+                { name: "tailwind", icon: <SiTailwindcss className="w-16" /> },
             ],
             liveLink: "https://money-mint-ten.vercel.app/",
             thumbnail: "/image2.png",
@@ -58,8 +57,8 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 "Easy to use interface",
             ],
             technologies: [
-                { name: "react", icon: <FaReact className="text-5xl text-sky-400" /> },
-                { name: "tailwind", icon: <img src="/tailwind.svg" alt="Tailwind" className="w-16" /> },
+                { name: "javascript", icon: <FaJs className="text-5xl text-yellow-400" /> },
+                { name: "tailwind", icon: <SiTailwindcss className="w-16" /> },
                 { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
             ],
             liveLink: "https://mukul-dixit.github.io/Mausam/",
@@ -149,63 +148,80 @@ export default function ProjectSlideshow({ darkMode = false }) {
                                 }}
                             >
                                 <div
-                                    className={`flex flex-col h-full rounded-3xl shadow-2xl overflow-hidden backdrop-blur-lg bg-opacity-50 border ${darkMode
+                                    className={`flex flex-col h-full rounded-3xl shadow-2xl overflow-hidden backdrop-blur-md bg-opacity-50 border ${darkMode
                                         ? 'bg-black text-white border-gray-800 shadow-orange-900/30'
                                         : 'bg-white text-black border-gray-300 shadow-gray-400/40'
                                         }`}
                                 >
                                     {/* Header */}
-                                    <div className="p-4 text-center border-b border-opacity-20 border-current">
-                                        <h1 className="text-3xl font-bold font-['Sour_Gummy'] tracking-wide">{`${index + 1}. ${project.title}`}</h1>
-                                    </div>
+                                    <div className="p-4 text-center ">
+                                        <h1 className={`text-xl font-bold font-['Sour_Gummy'] ${darkMode?"bg-gray-300 text-black":"bg-gray-700 text-white"} px-2 py-2 rounded-full mr-3  tracking-wide`}>{`${project.title}`}</h1>
+                                    </div> 
 
-                                    {/* Scrollable Content */}
-                                    <div className="flex-1 overflow-y-auto p-6 space-y-6">
-                                        <p className="text-base leading-relaxed tracking-wide">{project.description}</p>
+                                    {/* Two-Section Layout - Horizontal Split */}
+                                    <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
+                                        
+                                        {/* Left Section - Project Details & Tech Stack */}
+                                        <div className="flex-1 p-6 overflow-y-auto space-y-6">
+                                            <p className="text-base leading-relaxed tracking-wide">{project.description}</p>
 
-                                        {project.features && (
-                                            <div>
-                                                <h3 className="font-semibold text-lg mb-2">✨ Features:</h3>
-                                                <ul className="list-disc list-inside text-sm space-y-1">
-                                                    {project.features.map((f, i) => (
-                                                        <li key={i}>{f}</li>
-                                                    ))}
-                                                </ul>
-                                            </div>
-                                        )}
-
-                                        {/* Technologies */}
-                                        <div className="flex justify-center flex-wrap gap-4 mt-4">
-                                            {project.technologies.map((tech, i) => (
-                                                <div key={i} className="flex flex-col items-center gap-1 w-16">
-                                                    <div className="transition-transform hover:scale-110">{tech.icon}</div>
-                                                    <span className="text-xs text-center font-medium">{tech.name}</span>
+                                            {project.features && (
+                                                <div>
+                                                    <h3 className="font-semibold text-lg mb-2">✨ Features:</h3>
+                                                    <ul className="list-disc list-inside text-sm space-y-1">
+                                                        {project.features.map((f, i) => (
+                                                            <li key={i}>{f}</li>
+                                                        ))}
+                                                    </ul>
                                                 </div>
-                                            ))}
+                                            )}
+
+                                            {/* Technologies */}
+                                            <div>
+                                                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2"><FaHammer/> Tech Stack:</h3>
+                                                <div className="flex flex-wrap gap-3">
+                                                    {project.technologies.map((tech, i) => (
+                                                        <div key={i} className="flex items-center gap-2 bg-opacity-20 bg-gray-500 rounded-lg px-3 py-2">
+                                                            <div className="w-8 h-8 flex items-center justify-center">{tech.icon}</div>
+                                                            <span className="text-sm font-medium capitalize">{tech.name}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
                                         </div>
 
-                                        {/* thumbnail App - Minimal */}
-                                        <img
-                                            src={project.thumbnail}
-                                            alt={project.title}
-                                            className="w-full rounded-xl bg-cover "
-                                            loading="lazy"
-                                        />
-                                    </div>
-
-                                    {/* Footer */}
-                                    <div className="p-4 border-t border-opacity-20 border-current text-center">
-                                        <a
-                                            href={project.liveLink}
-                                            className={`inline-flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 hover:scale-105 shadow-md ${darkMode
-                                                ? 'bg-gradient-to-r from-amber-600 to-red-600 text-white hover:from-red-500 hover:to-amber-500'
-                                                : 'bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:from-purple-500 hover:to-indigo-500'
-                                                }`}
-                                            target="_blank"
-                                            rel="noopener noreferrer"
-                                        >
-                                            🚀 View Live
-                                        </a>
+                                        {/* Right Section - Portrait Screenshot */}
+                                        <div className="lg:w-80 flex items-center justify-center p-6">
+                                            <div className="relative w-full max-w-[280px] h-[400px] rounded-xl overflow-hidden shadow-2xl group">
+                                                <img
+                                                    src={project.thumbnail}
+                                                    alt={project.title}
+                                                    className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                                                    loading="lazy"
+                                                />
+                                                
+                                                {/* Tilted Arrow Link - Top Left */}
+                                                <a
+                                                    href={project.liveLink}
+                                                    target="_blank"
+                                                    rel="noopener noreferrer"
+                                                    className={`absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12 transform rotate-6 shadow-lg z-10 ${
+                                                        darkMode 
+                                                            ? 'bg-gradient-to-r backdrop-blur-md from-amber-500/70 to-red-500/70 text-white hover:from-red-400/70 hover:to-amber-400'
+                                                            : 'bg-gradient-to-r backdrop-blur-md from-blue-500/70 to-purple-500/70 text-white hover:from-purple-400/70 hover:to-blue-400'
+                                                    }`}
+                                                    title="View Live Project"
+                                                >
+                                                    <FaArrowRight className="text-lg transform -rotate-45" />
+                                                </a>
+                                                
+                                                {/* Hover Overlay */}
+                                                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
+                                                    darkMode ? 'bg-black/60' : 'bg-white/60'
+                                                }`}>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

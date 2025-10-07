@@ -102,11 +102,20 @@ export default function Home({ darkMode }) {
             className={`transition-colors duration-1000 mt-24 lg:mt-32 md:m-32 m-5  sm:mx-6 md:mx-16 lg:mx-12 xl:mx-32 flex flex-wrap gap-10 item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
         >
             <div className="social-icons-container flex mt-8 md:mt-20 sm:flex-row md:flex-col lg:flex-col gap-7 items-center">
-                <a href="https://github.com/MuKuL-DiXiT" target='_blank' className="social-icon"><FaGithub className="text-xl hover:text-3xl hover:text-red-500 transition-colors duration-300 hover-glow" /></a>
-                <a href="https://t.me/mukuldixit" target='_blank' className="social-icon"><FaTelegram className="text-xl hover:text-3xl hover:text-blue-400 transition-colors duration-300 hover-glow" /></a>
-                <a href="https://www.instagram.com/mukul____dixit/" target='_blank' className="social-icon"><FaInstagram className="text-xl hover:text-3xl hover:text-pink-500 transition-colors duration-300 hover-glow" /></a>
-                <a href="https://leetcode.com/u/Mukul_1608/" target='_blank' className="social-icon"><SiLeetcode className="text-xl hover:text-3xl hover:text-amber-600 transition-colors duration-300 hover-glow" /></a>
+                <a href="https://github.com/MuKuL-DiXiT" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-red-500">
+                    <FaGithub className="text-xl hover-glow" />
+                </a>
+                <a href="https://t.me/mukuldixit" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-blue-400">
+                    <FaTelegram className="text-xl hover-glow" />
+                </a>
+                <a href="https://www.instagram.com/mukul____dixit/" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-pink-500">
+                    <FaInstagram className="text-xl hover-glow" />
+                </a>
+                <a href="https://leetcode.com/u/Mukul_1608/" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-amber-600">
+                    <SiLeetcode className="text-xl hover-glow" />
+                </a>
             </div>
+
 
             {/* <div className="relative lg:mt-10 max-w-72 max-h-72">
                 <motion.img
@@ -132,12 +141,12 @@ export default function Home({ darkMode }) {
                     transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
                 />
             </div> */}
-            <div className={`profile_image h-48 w-48 sm:h-64 rounded-full sm:w-64 border-8 ${darkMode?"border-black":"border-black/50"}`}>
+            <div className={`relative profile_image h-48 w-48 sm:h-64 rounded-full sm:w-64 border-8 ${darkMode ? "border-black" : "border-black/50"}`}>
 
             </div>
 
             <div ref={textContentRef} className="flex flex-col gap-5 max-w-xl break-words text-center sm:text-center md:text-center lg:text-left sm:ml-8">
-                <div className={`sm:text-7xl text-4xl bg-clip-text bg-gradient-to-t text-transparent from-black to-red-600 ${darkMode && "from-white"}`}>
+                <div className={`sm:text-7xl font-marker text-4xl bg-clip-text bg-gradient-to-t text-transparent from-black to-[#dcd7d3] ${darkMode && "from-white"}`}>
                     <Typewriter
                         options={{
                             strings: ["Mukul Dixit"],
