@@ -65,9 +65,20 @@ export default function Navbar({ darkMode, setDarkMode }) {
     return (
         <div className="fixed   top-0 left-3 right-5 w-full  z-50">
             {/* Top Navbar */}
-            <div className={`px-4 py-3 flex justify-evenly items-center ${darkMode ? "text-white" : "text-black"}`}>
-                {/* Brand */}
-               
+            <div className={`px-4 py-3  flex justify-evenly items-center ${darkMode ? "text-white" : "text-black"}`}>
+                
+                {/* Brand - Mobile Only */}
+                <div className="md:hidden absolute left-4 top-3">
+                    <div className={`px-4 py-2 rounded-xl backdrop-blur-md  border transition-all duration-300 ${
+                        darkMode 
+                            ? "bg-white/30 border-white/20 text-white " 
+                            : "bg-black/30 border-black/20 text-black"
+                    }`}>
+                        <span className="text-xl font-bold font-marker ">
+                         {"<mukul/>"}
+                        </span>
+                    </div>
+                </div>
 
                 {/* Desktop Nav */}
                 <div className="hidden md:flex  items-center gap-4">
@@ -127,7 +138,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                     </div>
 
                 {/* Mobile Menu Toggle */}
-                <div className="md:hidden flex gap-3 items-center">
+                <div className="md:hidden flex gap-3 mr-5 items-center">
                     <button
                         onClick={() => setDarkMode(!darkMode)}
                         className={`rounded-full duration-500 border-b-2 ${darkMode ? "border-white" : "border-black"}`}
@@ -148,7 +159,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                         return (
                             <a key={to} href={to} className={navClass} onClick={() => setIsSidebarOpen(false)}>
                                 <div className="flex flex-col items-center">
-                                    <Icon className={`transition-all ${isActive ? "text-orange-600" : ""}`} />
+                                    <Icon className={`transition-all`} />
                                 </div>
                             </a>
                         );

@@ -1,5 +1,5 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaInstagram, FaTelegram } from "react-icons/fa";
+import { FaGithub, FaLinkedin, FaInstagram, FaTelegram, FaKeyboard } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { NavLink } from "react-router-dom";
 
@@ -7,7 +7,7 @@ export default function Footer({ darkMode }) {
   return (
     <footer
       className={`
-        relative w-full py-12 px-6 md:px-24
+        relative w-full sm:mt-0 mt-[400px] py-12 px-6 md:px-24
         ${darkMode ? "bg-gray-900 text-gray-300" : "bg-black text-white"}
         overflow-hidden
       `}
@@ -46,7 +46,7 @@ export default function Footer({ darkMode }) {
           aria-label="Keyboard shortcuts"
           className="w-1/2 sm:w-1/3 md:w-auto"
         >
-          <h3 className="font-semibold text-lg mb-5">⌨️ Shortcuts</h3>
+          <h3 className="font-semibold text-lg flex items-center gap-2 mb-5"><FaKeyboard/> Shortcuts</h3>
           <div className="space-y-2 text-sm opacity-90">
             {[
               { keys: "Shift + H", action: "Home" },

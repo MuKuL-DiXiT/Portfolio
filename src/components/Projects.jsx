@@ -162,7 +162,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
                                     <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
                                         
                                         {/* Left Section - Project Details & Tech Stack */}
-                                        <div className="flex-1 p-6 overflow-y-auto space-y-6">
+                                        <div className="myDiv flex-1 p-6 overflow-y-auto space-y-6">
                                             <p className="text-base leading-relaxed tracking-wide">{project.description}</p>
 
                                             {project.features && (
@@ -181,8 +181,8 @@ export default function ProjectSlideshow({ darkMode = false }) {
                                                 <h3 className="font-semibold text-lg mb-3 flex items-center gap-2"><FaHammer/> Tech Stack:</h3>
                                                 <div className="flex flex-wrap gap-3">
                                                     {project.technologies.map((tech, i) => (
-                                                        <div key={i} className="flex items-center gap-2 bg-opacity-20 bg-gray-500 rounded-lg px-3 py-2">
-                                                            <div className="w-8 h-8 flex items-center justify-center">{tech.icon}</div>
+                                                        <div key={i} className="flex items-center gap-2 bg-opacity-20 bg-gray-500 rounded-full px-2 py-1">
+                                                            <div className="w-5 h-5 flex items-center justify-center">{tech.icon}</div>
                                                             <span className="text-sm font-medium capitalize">{tech.name}</span>
                                                         </div>
                                                     ))}
@@ -192,7 +192,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
 
                                         {/* Right Section - Portrait Screenshot */}
                                         <div className="lg:w-80 flex items-center justify-center p-6">
-                                            <div className="relative w-full max-w-[280px] h-[400px] rounded-xl overflow-hidden shadow-2xl group">
+                                            <div className="relative w-full h-[200px]  sm:max-w-[280px] sm:h-[400px] rounded-xl overflow-hidden shadow-2xl group">
                                                 <img
                                                     src={project.thumbnail}
                                                     alt={project.title}

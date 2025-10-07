@@ -99,9 +99,9 @@ export default function Home({ darkMode }) {
     return (
         <div
             ref={homeRef}
-            className={`transition-colors duration-1000 mt-24 lg:mt-32 md:m-32 m-5  sm:mx-6 md:mx-16 lg:mx-12 xl:mx-32 flex flex-wrap gap-10 item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
+            className={`transition-colors duration-1000  lg:mt-32 md:m-32 m-5  sm:mx-6 md:mx-16 lg:mx-12 xl:mx-32 flex flex-wrap gap-10 md:item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
         >
-            <div className="social-icons-container flex mt-8 md:mt-20 sm:flex-row md:flex-col lg:flex-col gap-7 items-center">
+            <div className="social-icons-container flex md:mt-20 sm:flex-row md:flex-col lg:flex-col gap-7 items-center">
                 <a href="https://github.com/MuKuL-DiXiT" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-red-500">
                     <FaGithub className="text-xl hover-glow" />
                 </a>

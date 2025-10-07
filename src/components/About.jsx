@@ -143,34 +143,15 @@ const About = ({ darkMode }) => {
                 whileHover={{ scale: 1.2 }}
                 whileTap={{ scale: 0.9 }}
               >
-                <span className={`font-semibold text-gray-400`}>
-                  {index + 1}
+                <span className={`text-xs sm:text-base mt-5 md:font-semibold bg-black rounded-full px-3 py-2 sm:mt-7  text-gray-400`}>
+                  {card.title}
                 </span>
-
-                {/* Pulse animation for active dot */}
-                {activeCardIndex === index && (
-                  <motion.div
-                    className={`absolute inset-0 rounded-full animate-ping ${darkMode ? "bg-black" : "bg-black"
-                      }`}
-                    transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-                  />
-                )}
               </motion.div>
             ))}
           </div>
 
           {/* Mobile headings below the line */}
-          <div className="flex justify-between px-4 mt-2">
-            {cardData.map((card, index) => (
-              <div
-                key={index}
-                className={`text-xs text-center cursor-pointer ${darkMode ? "text-gray-400" : "text-black"}`}
-                onClick={() => setActiveCardIndex(activeCardIndex === index ? null : index)}
-              >
-                {card.miniContent}
-              </div>
-            ))}
-          </div>
+          
         </div>
 
         {/* Container for the actively displayed card */}

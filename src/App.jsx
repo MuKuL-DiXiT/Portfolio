@@ -68,7 +68,7 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
 
       {/* Scrollable, snap-to-section container */}
       <div
-        className={`transition-all duration-1000 min-h-screen overflow-y-auto scroll-smooth flex flex-col border-x-8 border-black ${darkMode
+        className={`myDiv hide-scrollbar transition-all duration-1000 min-h-screen overflow-y-auto scroll-smooth flex flex-col border-x-8 border-black ${darkMode
           ? "text-white bg-gradient-to-tr from-slate-900 via-slate-700 to-slate-900"
           : "text-black bg-gradient-to-tr from-sky-200 via-white/90 to-sky/200"
           }`}
@@ -98,7 +98,7 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
             <SectionHeader title="Projects" darkMode={darkMode} />
             <Projects darkMode={darkMode} />
           </section>
-          <section id="contacts" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10">
+          <section id="contacts" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10 mb:20 md:mb-0">
             <SectionHeader title="Contact" darkMode={darkMode} />
             <Contacts darkMode={darkMode} />
           </section>
