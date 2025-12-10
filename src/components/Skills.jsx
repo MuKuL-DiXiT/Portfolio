@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
-import { FaJs, FaReact, FaHtml5, FaCss3, FaNodeJs, FaTags } from "react-icons/fa";
-import { SiTailwindcss, SiExpress, SiMongodb, SiMongoose, SiSocketdotio, SiMysql, SiGit, SiJsonwebtokens, SiCplusplus, SiC, SiGithub, SiNextdotjs, SiPostman, SiTypescript, SiVercel, SiRender } from "react-icons/si";
+import { FaJs, FaReact, FaHtml5, FaCss3, FaNodeJs, FaTags, FaChartPie } from "react-icons/fa";
+import { SiTailwindcss, SiExpress, SiMongodb, SiMongoose, SiSocketdotio, SiMysql, SiGit, SiJsonwebtokens, SiCplusplus, SiC, SiGithub, SiNextdotjs, SiPostman, SiTypescript, SiVercel, SiRender, SiDocker, SiPython, SiNumpy, SiPandas, SiMetasploit } from "react-icons/si";
 
 
 export default function Skills({ darkMode }) {
@@ -20,11 +20,16 @@ export default function Skills({ darkMode }) {
     { name: "Postman", icon: <SiPostman className="text-orange-600" />, tag: "Testing" },
     { name: "C++", icon: <SiCplusplus className="text-sky-700" />, tag: "Language" },
     { name: "C", icon: <SiC className="text-sky-700" />, tag: "Language" },
-    { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-400" />, tag: "Styling" },
-    { name: "Mongoose", icon: <SiMongoose className="text-red-600" />, tag: "Database" },
+    { name: "Python", icon: <SiPython className="text-black" />, tag: "Language" },
+    { name: "NumPy", icon: <SiNumpy className="text-blue-700" />, tag: "Computation" },
+    { name: "Pandas", icon: <SiPandas className="text-blue-900" />, tag: "Computation" },
+    { name: "MatPlotLib", icon: <FaChartPie className="text-red-600" />, tag: "Computation" },
+    { name: "Tailwind", icon: <SiTailwindcss className="text-cyan-500" />, tag: "Styling" },
+    { name: "Mongoose", icon: <SiMongoose className="text-red-600 text-4xl" />, tag: "Database" },
     { name: "Socket.io", icon: <SiSocketdotio className={`${darkMode ? "text-white" : "text-black"}`} />, tag: "Web Sockets" },
     { name: "Git", icon: <SiGit className="text-orange-500" />, tag: "Version Control" },
     { name: "Github", icon: <SiGithub className={`${darkMode ? "text-white" : "text-black"}`} />, tag: "Version Control" },
+    { name: "Docker", icon: <SiDocker className={`${darkMode ? "text-white" : "text-blue-600"}`} />, tag: "Version Control" },
     { name: "Vercel", icon: <SiVercel className={`text-black`} />, tag: "Deployement" },
     { name: "Render", icon: <SiRender className={`text-black`} />, tag: "Deployement" },
     { name: "JWT", icon: <SiJsonwebtokens className={`${darkMode ? "text-white" : "text-black"}`} />, tag: "Authorization" },

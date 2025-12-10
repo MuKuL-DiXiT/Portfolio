@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default function LandingAnimation() {
+export default function LandingAnimation({darkMode}) {
   const [animationStage, setAnimationStage] = useState(0);
   const [startExitAnimation, setStartExitAnimation] = useState(false);
   
@@ -30,7 +30,7 @@ export default function LandingAnimation() {
   }, []);
   
   return (
-    <div className={`fixed inset-0 flex items-center justify-center z-50 bg-white
+    <div className={`fixed inset-0 flex items-center justify-center z-50 ${darkMode?'bg-gray-900':'bg-gray-300'} 
       transition-opacity duration-1000 ${startExitAnimation ? 'opacity-0' : 'opacity-100'}`}>
       <div className="text-center">
         <div className="flex justify-center items-center mb-6 relative">
