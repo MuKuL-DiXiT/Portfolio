@@ -98,7 +98,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
 
     return (
         <div className="w-full min-h-screen flex flex-col items-center justify-center relative">
-            
+
             <div className="w-full flex items-center justify-center overflow-hidden relative" style={{
                 minHeight: 'calc(100vh - 120px)', // Account for navbar and footer
             }}>
@@ -155,12 +155,12 @@ export default function ProjectSlideshow({ darkMode = false }) {
                                 >
                                     {/* Header */}
                                     <div className="p-4 text-center ">
-                                        <h1 className={`text-xl font-bold font-['Sour_Gummy'] ${darkMode?"bg-gray-300 text-black":"bg-gray-700 text-white"} px-2 py-2 rounded-full mr-3  tracking-wide`}>{`${project.title}`}</h1>
-                                    </div> 
+                                        <h1 className={`text-xl font-bold font-['Sour_Gummy'] ${darkMode ? "bg-gray-300 text-black" : "bg-gray-700 text-white"} px-2 py-2 rounded-full mr-3  tracking-wide`}>{`${project.title}`}</h1>
+                                    </div>
 
                                     {/* Two-Section Layout - Horizontal Split */}
                                     <div className="flex-1 flex flex-col lg:flex-row overflow-hidden">
-                                        
+
                                         {/* Left Section - Project Details & Tech Stack */}
                                         <div className="myDiv flex-1 p-6 overflow-y-auto space-y-6">
                                             <p className="text-base leading-relaxed tracking-wide">{project.description}</p>
@@ -178,7 +178,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
 
                                             {/* Technologies */}
                                             <div>
-                                                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2"><FaHammer/> Tech Stack:</h3>
+                                                <h3 className="font-semibold text-lg mb-3 flex items-center gap-2"><FaHammer /> Tech Stack:</h3>
                                                 <div className="flex flex-wrap gap-3">
                                                     {project.technologies.map((tech, i) => (
                                                         <div key={i} className="flex items-center gap-2 bg-opacity-20 bg-gray-500 rounded-full px-2 py-1">
@@ -199,26 +199,24 @@ export default function ProjectSlideshow({ darkMode = false }) {
                                                     className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
                                                     loading="lazy"
                                                 />
-                                                
+
                                                 {/* Tilted Arrow Link - Top Left */}
                                                 <a
                                                     href={project.liveLink}
                                                     target="_blank"
                                                     rel="noopener noreferrer"
-                                                    className={`absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12 transform rotate-6 shadow-lg z-10 ${
-                                                        darkMode 
+                                                    className={`absolute top-4 left-4 w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 hover:scale-110 hover:rotate-12 transform rotate-6 shadow-lg z-10 ${darkMode
                                                             ? 'bg-gradient-to-r backdrop-blur-md from-amber-500/70 to-red-500/70 text-white hover:from-red-400/70 hover:to-amber-400'
                                                             : 'bg-gradient-to-r backdrop-blur-md from-blue-500/70 to-purple-500/70 text-white hover:from-purple-400/70 hover:to-blue-400'
-                                                    }`}
+                                                        }`}
                                                     title="View Live Project"
                                                 >
                                                     <FaArrowRight className="text-lg transform -rotate-45" />
                                                 </a>
-                                                
+
                                                 {/* Hover Overlay */}
-                                                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${
-                                                    darkMode ? 'bg-black/60' : 'bg-white/60'
-                                                }`}>
+                                                <div className={`absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center ${darkMode ? 'bg-black/60' : 'bg-white/60'
+                                                    }`}>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,7 +240,6 @@ export default function ProjectSlideshow({ darkMode = false }) {
                     ))}
                 </div>
             </div>
-            {/* Navigation Buttons */}
 
         </div>
     );

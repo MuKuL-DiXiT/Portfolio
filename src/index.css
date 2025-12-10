@@ -13,7 +13,14 @@
     width: 0;
     height: 0;
   }
+
+  .bg-clip-text {
+    -webkit-background-clip: text;
+    background-clip: text;
+  }
 }
+
+
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -143,7 +150,7 @@ body::-webkit-scrollbar {
 
 
 .profile_image {
-  background: url(/public/photo_1.jpg);
+  background: url(/public/photo.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

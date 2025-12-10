@@ -138,7 +138,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
                     </div>
 
                 {/* Mobile Menu Toggle */}
-                <div className="md:hidden flex gap-3 mr-5 items-center">
+                <div className="md:hidden flex gap-3 mr-5 mt-3 items-center">
                     <button
                         onClick={() => setDarkMode(!darkMode)}
                         className={`rounded-full duration-500 border-b-2 ${darkMode ? "border-white" : "border-black"}`}

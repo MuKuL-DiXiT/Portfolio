@@ -64,7 +64,7 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
 
   return (
     <>
-      {showLanding && <LandingAnimation />}
+      {showLanding && <LandingAnimation darkMode={darkMode} />}
 
       {/* Scrollable, snap-to-section container */}
       <div
@@ -77,7 +77,7 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
         <main className="flex flex-col">
-          <section id="home" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10 pt-20">
+          <section id="home" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10 pt-12 md:pt-0">
             <Home darkMode={darkMode} />
           </section>
           <section id="about" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10 pt-20">
@@ -111,7 +111,7 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
 
 export default function App() {
   // ...existing code...
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
   const [showLanding, setShowLanding] = useState(true);
 
   useEffect(() => {
