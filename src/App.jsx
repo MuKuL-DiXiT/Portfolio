@@ -76,20 +76,20 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
       >
         <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
-        <main className="flex flex-col">
-          <section id="home" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10 pt-12 md:pt-0">
+        <main className="flex flex-col md:px-32">
+          <section id="home" className="snap-start flex flex-col items-center justify-center gap-10 pt-12 md:pt-0">
             <Home darkMode={darkMode} />
           </section>
-          <section id="about" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10 pt-20">
+          <section id="about" className="snap-start  flex flex-col items-center justify-center gap-10 pt-20 md:pt-0">
             <SectionHeader title="About" darkMode={darkMode} />
             <div className="flex flex-col md:flex-row items-start  justify-center gap-10">
               <About darkMode={darkMode} />
               <div className="w-full max-w-5xl mx-auto scale-80  mb-12">
-                <Lottie animationData={data} loop={true} className="md:mt-32"/>
+                <Lottie animationData={data} loop={true} className=""/>
               </div>
             </div>
           </section>
-          <section id="skills" className="snap-start min-h-screen flex flex-col items-center justify-center gap-10 pt-20">
+          <section id="skills" className="snap-start flex flex-col items-center justify-center gap-10 pt-20">
             <SectionHeader title="Skills" darkMode={darkMode} />
             <Skills darkMode={darkMode} />
           </section>
