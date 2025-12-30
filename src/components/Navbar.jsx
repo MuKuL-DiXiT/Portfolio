@@ -1,9 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useState } from "react";
 import { Home, User, Code, Folder, Contact, Sun, Moon, Menu } from "lucide-react";
 
 export default function Navbar({ darkMode, setDarkMode }) {
-    const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
-    const [activeSection, setActiveSection] = React.useState("home");
+    const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+    const [activeSection, setActiveSection] = useState("home");
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(()=>{
+        const onScroll = () => setScrolled(window.scrollY>0);
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
+    }, [])
 
     // Track which section is currently in view
     React.useEffect(() => {
@@ -63,7 +70,7 @@ export default function Navbar({ darkMode, setDarkMode }) {
     const navClass = `group relative w-12 h-12 sm:w-16 lg:w-20 flex items-center justify-center`;
 
     return (
-        <div className="fixed   top-0 left-3 right-5 w-full  z-50">
+        <div className={`fixed  ${scrolled?"top-4":"top-0"} left-3 right-5 w-full  z-50 transition-all duration-1000`}>
             {/* Top Navbar */}
             <div className={`px-4 py-3  flex justify-evenly items-center ${darkMode ? "text-white" : "text-black"}`}>
                 
@@ -83,8 +90,8 @@ export default function Navbar({ darkMode, setDarkMode }) {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex  items-center gap-4">
                     <div
-                        className={`${darkMode ? "border-white bg-black/20 text-white" : "border-black bg-white/20 text-black"
-                            } backdrop-blur-md  before:[mask-image:linear-gradient(white, transparent)] border border-t-2 ml-10 rounded-full px-6 flex items-center flex-wrap justify-center gap-2 sm:gap-6  lg:gap-10 transition-all`}
+                        className={`${darkMode ? `border-white ${scrolled? "bg-black/20" : ""} text-white` : `border-black ${scrolled? "bg-white/20" : ""}  text-black`
+                            } backdrop-blur-md  before:[mask-image:linear-gradient(white, transparent)] border ${scrolled?" border-t-2 px-6 lg:gap-2 justify-center ml-10":"justify-between border-b-2 border-t-0 gap-2 lg:gap-10"}  rounded-full  flex items-center flex-wrap  sm:gap-6 duration-1000   transition-all`}
                     >
                         {navItems.map(({ to, label, icon: Icon }, index) => {
                             const isActive = activeSection === to.slice(1); // Remove # from to

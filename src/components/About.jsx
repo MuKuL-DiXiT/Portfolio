@@ -113,20 +113,16 @@ const About = ({ darkMode }) => {
   ];
 
   return (
-    <div className="w-full mt-16 flex flex-col items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
+    <div className="w-full  flex flex-col items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
      
       <div className="w-full flex flex-col md:justify-center items-center gap-6 md:gap-10 py-6 md:py-10 px-4 text-center relative">
        
        
        <h1 className="text-xs"><span className="text-xl">Timeline</span><br /> click below for details</h1>
-        {/* Mobile: Horizontal Timeline */}
         <div className=" w-full max-w-2xl relative">
-          {/* Horizontal line */}
           <div
             className={`absolute left-8 right-8 h-1 rounded-full bg-black`}
           ></div>
-
-          {/* Points on the line */}
           <div className="flex justify-between px-8">
             {cardData.map((card, index) => (
               <motion.div
@@ -171,7 +167,7 @@ const About = ({ darkMode }) => {
           </AnimatePresence>
         </div>
       </div>
-      <p className={`text-center text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>
+      <p className={`text-center sm: ml-16 text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>
        I am a passionate full-stack developer dedicated to crafting innovative web solutions. With a love for problem-solving and a keen eye for detail, I strive to build seamless user experiences that are both functional and visually appealing. Constantly learning and adapting, I embrace challenges as opportunities to grow and push the boundaries of technology.
       </p>
     </div>
