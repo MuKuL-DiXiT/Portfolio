@@ -18,6 +18,13 @@ export default function Home({ darkMode }) {
     const mainImageRef = useRef(null);
     const textContentRef = useRef(null);
 
+    const socialLinks = [
+        { url: "https://github.com/MuKuL-DiXiT", icon: FaGithub, hoverColor: "hover:text-black", label: "GitHub" },
+        { url: "https://t.me/mukuldixit", icon: FaTelegram, hoverColor: "hover:text-blue-400", label: "Telegram" },
+        { url: "https://www.instagram.com/mukul____dixit/", icon: FaInstagram, hoverColor: "hover:text-pink-500", label: "Instagram" },
+        { url: "https://leetcode.com/u/Mukul_1608/", icon: SiLeetcode, hoverColor: "hover:text-amber-600", label: "LeetCode" }
+    ];
+
     useEffect(() => {
         const interval = setInterval(() => {
             setPoints(geod());
@@ -99,21 +106,71 @@ export default function Home({ darkMode }) {
     return (
         <div
             ref={homeRef}
-            className={`transition-colors duration-1000  md:m-32 m-5  sm:mx-6 md:mx-16 lg:mx-12 xl:mx-32 flex flex-wrap gap-10 md:item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
+            className={`transition-colors duration-5000 mt-20  md:m-32 m-5 sm:mx-6 flex flex-wrap gap-10 md:item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
         >
-            <div className="social-icons-container flex md:mt-20 sm:flex-row md:flex-col lg:flex-col gap-7 items-center">
-                <a href="https://github.com/MuKuL-DiXiT" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-red-500">
-                    <FaGithub className="text-xl hover-glow" />
-                </a>
-                <a href="https://t.me/mukuldixit" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-blue-400">
-                    <FaTelegram className="text-xl hover-glow" />
-                </a>
-                <a href="https://www.instagram.com/mukul____dixit/" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-pink-500">
-                    <FaInstagram className="text-xl hover-glow" />
-                </a>
-                <a href="https://leetcode.com/u/Mukul_1608/" target="_blank" className="social-icon transform transition-transform duration-300 hover:scale-125 hover:text-amber-600">
-                    <SiLeetcode className="text-xl hover-glow" />
-                </a>
+            <div className='sm:ml-10 mt-8 sm:mt-0 flex flex-col'>
+                <div className="social-icons-container md:mt-20 flex sm:flex-row flex-col gap-3">
+                    {socialLinks.map((link) => {
+                        const Icon = link.icon;
+                        return (
+                            <a
+                                key={link.label}
+                                href={link.url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className={`social-icon transform transition-transform duration-300 hover:scale-125 ${link.hoverColor}`}
+                                aria-label={link.label}
+                            >
+                                <Icon className="transition-all duration-500 text-xl hover-glow" />
+                            </a>
+                        );
+                    })}
+                </div>
+                <div className="flex flex-col gap-3 sm:gap-3 sm:-ml-1 mt-3 sm:mt-10">
+                    <a
+                        href="https://www.linkedin.com/in/mukul-dixit-8b945227b/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative inline-flex items-center w-max overflow-visible min-w-0 group"
+                        onMouseEnter={() => setLinkedin(true)}
+                        onMouseLeave={() => setLinkedin(false)}
+                    >
+                        <div className={`p-0 sm:px-4  sm:py-3 flex items-center justify-center transition-all duration-500 shadow-md 
+                            ${linkedin ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full rounded-full"}
+                            ${darkMode ? "sm:bg-sky-600 sm:text-black hover:shadow-sky-700" : "sm:bg-black sm:text-sky-600 hover:shadow-black"} hover-glow`}>
+                            <FaLinkedin className="text-xl rounded-lg z-10" />
+                        </div>
+                        
+
+                        <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
+                            rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
+                            ${darkMode ? "bg-sky-700 text-black shadow-sky-700" : "bg-black text-sky-600 shadow-black"}
+                            ${linkedin ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
+                            Hi, let’s connect on LinkedIn
+                        </span>
+                    </a>
+                    <a
+                        href="https://drive.google.com/file/d/1uNq9QN-CE_-3N2P-yD2ajWos3aaqTGUh/view"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="relative inline-flex items-center w-max overflow-visible min-w-0 group"
+                        onMouseEnter={() => setResume(true)}
+                        onMouseLeave={() => setResume(false)}
+                    >
+                        <div className={`p-0 sm:px-4 sm:py-3 flex items-center justify-center transition-all duration-500 shadow-md 
+                            ${resume ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full rounded-full"}
+                            ${darkMode ? "sm:bg-amber-700 sm:text-black hover:shadow-amber-600" : "sm:bg-black sm:text-amber-600 hover:shadow-black"} hover-glow`}>
+                            <FaFileAlt className="text-xl rounded-md z-10" />
+                        </div>
+                        
+                        <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
+                            rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
+                            ${darkMode ? "bg-amber-700 text-black shadow-amber-700" : "bg-black text-amber-600 shadow-black"}
+                            ${resume ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
+                            My Resume
+                        </span>
+                    </a>
+                </div>
             </div>
 
             <div className={`relative profile_image h-48 w-48 sm:h-64 rounded-full sm:w-64 border-8 ${darkMode ? "border-black" : "border-black/50"}`}>
@@ -139,67 +196,7 @@ export default function Home({ darkMode }) {
 
                 </div>
 
-                <div className="flex flex-col ml-8 sm:ml-0 w-12 gap-4 items-start">
-                    {/* LinkedIn Button */}
-                    <a
-                        href="https://www.linkedin.com/in/mukul-dixit-8b945227b/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative inline-flex items-center w-max overflow-visible min-w-0 group"
-                        onMouseEnter={() => setLinkedin(true)}
-                        onMouseLeave={() => setLinkedin(false)}
-                    >
-                        <div className={`px-4 sm:py-3 py-2.5 flex items-center justify-center transition-all duration-500 shadow-md 
-                            ${linkedin ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full sm:rounded-full"}
-                            ${darkMode ? "bg-sky-600 text-black hover:shadow-sky-700" : "bg-black text-sky-600 hover:shadow-black"} hover-glow`}>
-                            <FaLinkedin className="text-xl z-10" />
-                        </div>
-                        <span
-                            className={`
-    ml-2 block sm:hidden font-semibold text-sm px-3 py-2.5 rounded-r-full relative overflow-hidden 
-    ${darkMode ? "bg-sky-600 text-black" : "bg-black text-red-500"} shiny-frame
-  `}
-                        >
-                            Let's connect
-                        </span>
 
-                        <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
-                            rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
-                            ${darkMode ? "bg-sky-700 text-black shadow-sky-700" : "bg-black text-sky-600 shadow-black"}
-                            ${linkedin ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
-                            Hi, let’s connect on LinkedIn
-                        </span>
-                    </a>
-
-                    {/* Resume Button */}
-                    <a
-                        href="https://drive.google.com/file/d/1uNq9QN-CE_-3N2P-yD2ajWos3aaqTGUh/view"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="relative inline-flex items-center w-max overflow-visible min-w-0 group"
-                        onMouseEnter={() => setResume(true)}
-                        onMouseLeave={() => setResume(false)}
-                    >
-                        <div className={`px-4 py-2.5 sm:py-3 flex items-center justify-center transition-all duration-500 shadow-md 
-                            ${resume ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full sm:rounded-full"}
-                            ${darkMode ? "bg-amber-700 text-black hover:shadow-amber-600" : "bg-black text-amber-600 hover:shadow-black"} hover-glow`}>
-                            <FaFileAlt className="text-xl z-10" />
-                        </div>
-                        <span
-                            className={`
-    ml-2 block sm:hidden font-semibold text-sm px-3 py-2.5 rounded-r-full relative overflow-hidden 
-    ${darkMode ? "bg-amber-700 text-black" : "bg-black text-amber-600"} shiny-frame
-  `}
-                        >
-                            have a look</span>
-                        <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
-                            rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
-                            ${darkMode ? "bg-amber-700 text-black shadow-amber-700" : "bg-black text-amber-600 shadow-black"}
-                            ${resume ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
-                            My Resume
-                        </span>
-                    </a>
-                </div>
             </div>
         </div>
     );

@@ -167,7 +167,7 @@ const About = ({ darkMode }) => {
           </AnimatePresence>
         </div>
       </div>
-      <p className={`text-center text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>
+      <p className={`text-center sm: ml-16 text-lg md:text-xl max-w-3xl px-6 tracking-wide ${darkMode ? "text-white/80" : "text-black/80"}`}>
        I am a passionate full-stack developer dedicated to crafting innovative web solutions. With a love for problem-solving and a keen eye for detail, I strive to build seamless user experiences that are both functional and visually appealing. Constantly learning and adapting, I embrace challenges as opportunities to grow and push the boundaries of technology.
       </p>
     </div>
