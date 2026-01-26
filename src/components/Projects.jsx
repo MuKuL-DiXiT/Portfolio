@@ -1,6 +1,6 @@
 import { React, useEffect, useState } from "react";
-import { FaReact, FaCss3, FaJs, FaHtml5, FaHammer } from "react-icons/fa";
-import { SiExpress, SiMongodb, SiMongoose, SiSocketdotio, SiTailwindcss } from "react-icons/si";
+import { FaReact, FaCss3, FaJs, FaHtml5, FaHammer, FaYahoo } from "react-icons/fa";
+import { SiExpress, SiMongodb, SiMongoose, SiPandas, SiPlotly, SiSocketdotio, SiStreamlit, SiTailwindcss } from "react-icons/si";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 import { SiFirebase } from "react-icons/si";
 
@@ -10,7 +10,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
     const projects = [
         {
             title: "Future's Hope",
-            description: "🌱 Future's Hope is a community-driven social platform designed to promote environmental and social impact initiatives. Users can share their ideas, showcase eco-friendly projects, join interest-based communities, and interact through posts, comments, and chats. It also supports proof-based donation sharing to encourage transparency and inspire collective action.",
+            description: "Future's Hope is a community-driven social platform designed to promote environmental and social impact initiatives. Users can share their ideas, showcase eco-friendly projects, join interest-based communities, and interact through posts, comments, and chats. It also supports proof-based donation sharing to encourage transparency and inspire collective action.",
             features: [
                 "Post ideas, causes, or projects related to environment and society",
                 "Like, comment, reply, and share posts in real-time",
@@ -29,7 +29,25 @@ export default function ProjectSlideshow({ darkMode = false }) {
                 { name: "tailwind", icon: <SiTailwindcss className="w-16" /> },
             ],
             liveLink: "https://futures-hope.vercel.app/",
-            thumbnail: "/image.png",
+            thumbnail: "/futureshope.png",
+        },
+        {
+            title: "Stockery",
+            description: "Analyse stocks trend with data analysis using data from yahoo finance.",
+            features: [
+                "Get data records simplified using plots",
+                "Check different plot attributes like open, closing prices, moving avg, volitality",
+                "Multiple layout options",
+                "Compare two stocks"
+            ],
+            technologies: [
+                { name: "Pandas", icon: <SiPandas className={`text-5xl text-black ${darkMode?'text-white':''}`} /> },
+                { name: "Streamlit", icon: <SiStreamlit className="w-16 text-red-700" /> },
+                { name: "Plotly", icon: <SiPlotly className="text-5xl text-blue-700" /> },
+                { name: "Yahoo finance", icon: <FaYahoo className="text-5xl text-purple-700" /> },
+            ],
+            liveLink: "https://stockery.streamlit.app",
+            thumbnail: "/stockery.png",
         },
         {
             title: "Money Mint",
@@ -47,23 +65,8 @@ export default function ProjectSlideshow({ darkMode = false }) {
             ],
             liveLink: "https://money-mint-ten.vercel.app/",
             thumbnail: "/image2.png",
-        },
-        {
-            title: "Mausam",
-            description: "Mausam is a simple weather app that helps users check the weather of any city. It has a clean design and is easy to use. Users can search for a city and get real-time weather details like temperature, humidity, wind speed, and weather conditions. The app also features a weather history chart to track past trends.",
-            features: [
-                "Search for a city and get real-time weather details including temperature, humidity, wind speed, and weather conditions.",
-                "Weather chart for last few days to visualize weather changes",
-                "Easy to use interface",
-            ],
-            technologies: [
-                { name: "javascript", icon: <FaJs className="text-5xl text-yellow-400" /> },
-                { name: "tailwind", icon: <SiTailwindcss className="w-16" /> },
-                { name: "html", icon: <FaHtml5 className="text-5xl text-red-700" /> }
-            ],
-            liveLink: "https://mukul-dixit.github.io/Mausam/",
-            thumbnail: "/mausam.png",
-        },
+        }
+        
     ];
 
     const nextSlide = () => {
@@ -100,7 +103,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
         <div className="w-full min-h-screen flex flex-col items-center justify-center relative">
 
             <div className="w-full flex items-center justify-center overflow-hidden relative" style={{
-                minHeight: 'calc(100vh - 120px)', // Account for navbar and footer
+                minHeight: 'calc(100vh - 120px)',
             }}>
                 <button
                     onClick={prevSlide}
@@ -167,7 +170,7 @@ export default function ProjectSlideshow({ darkMode = false }) {
 
                                             {project.features && (
                                                 <div>
-                                                    <h3 className="font-semibold text-lg mb-2">✨ Features:</h3>
+                                                    <h3 className="font-semibold text-lg mb-2">Features:</h3>
                                                     <ul className="list-disc list-inside text-sm space-y-1">
                                                         {project.features.map((f, i) => (
                                                             <li key={i}>{f}</li>

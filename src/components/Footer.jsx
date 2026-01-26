@@ -7,7 +7,7 @@ export default function Footer({ darkMode }) {
   return (
     <footer
       className={`
-        relative w-full sm:mt-0 mt-[400px] p-5 px-6 md:px-24 border border-gray-500
+        relative w-full md:w-9/12 sm:mt-0 mt-[400px] p-5 md:mx-44 border border-gray-500
         ${darkMode ? "bg-gray-900 text-gray-300" : "bg-black/20 text-white"}
         overflow-hidden
       `}
