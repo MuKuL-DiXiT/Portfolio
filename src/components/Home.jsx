@@ -1,10 +1,11 @@
 import { useEffect, useState, useRef } from 'react';
-import { FaGithub, FaLinkedin, FaInstagram, FaTelegram, FaFileAlt } from 'react-icons/fa';
+import { FaGithub, FaLinkedin, FaInstagram, FaTelegram } from 'react-icons/fa';
 import { SiLeetcode } from 'react-icons/si';
 import Typewriter from 'typewriter-effect';
 import { motion } from 'framer-motion';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import Lottie from 'lottie-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -12,6 +13,9 @@ export default function Home({ darkMode }) {
     const [points, setPoints] = useState(geod());
     const [linkedin, setLinkedin] = useState(false);
     const [resume, setResume] = useState(false);
+    const [data, setData] = useState(null);
+    const [data1, setData1] = useState(null);
+
 
     const homeRef = useRef(null);
     const imageBorderRef = useRef(null);
@@ -20,10 +24,21 @@ export default function Home({ darkMode }) {
 
     const socialLinks = [
         { url: "https://github.com/MuKuL-DiXiT", icon: FaGithub, hoverColor: "hover:text-black", label: "GitHub" },
-        { url: "https://t.me/mukuldixit", icon: FaTelegram, hoverColor: "hover:text-blue-400", label: "Telegram" },
+        { url: "http://t.me/mukuldixit", icon: FaTelegram, hoverColor: "hover:text-blue-400", label: "Telegram" },
         { url: "https://www.instagram.com/mukul____dixit/", icon: FaInstagram, hoverColor: "hover:text-pink-500", label: "Instagram" },
         { url: "https://leetcode.com/u/Mukul_1608/", icon: SiLeetcode, hoverColor: "hover:text-amber-600", label: "LeetCode" }
     ];
+    useEffect(()=>{
+        async function fetchData(){
+            const response = await fetch('/document.json')
+            const json = await response.json();
+            setData(json)
+            const response1 = await fetch('linkedIn.json')
+            const json1 = await response1.json()
+            setData1(json1)
+        }
+        fetchData();
+    }, [])
 
     useEffect(() => {
         const interval = setInterval(() => {
@@ -135,18 +150,18 @@ export default function Home({ darkMode }) {
                         onMouseEnter={() => setLinkedin(true)}
                         onMouseLeave={() => setLinkedin(false)}
                     >
-                        <div className={`p-0 sm:px-4  sm:py-3 flex items-center justify-center transition-all duration-500 shadow-md 
+                        <div className={`p-0 px-4 flex items-center justify-center transition-all duration-500 shadow-md 
                             ${linkedin ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full rounded-full"}
-                            ${darkMode ? "sm:bg-sky-600 sm:text-black hover:shadow-sky-700" : "sm:bg-black sm:text-sky-600 hover:shadow-black"} hover-glow`}>
-                            <FaLinkedin className="text-xl rounded-lg z-10" />
+                            ${darkMode ? "bg-gray-400 sm:text-black hover:shadow-sky-700" : "bg-black sm:text-sky-600 hover:shadow-black"} hover-glow`}>
+                            <Lottie animationData={data1} loop={true} className="w-10 h-10"/>
                         </div>
                         
 
                         <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
                             rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
-                            ${darkMode ? "bg-sky-700 text-black shadow-sky-700" : "bg-black text-sky-600 shadow-black"}
+                            ${darkMode ? "bg-gray-700 text-black" : "bg-black text-sky-600 shadow-black"}
                             ${linkedin ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
-                            Hi, let’s connect on LinkedIn
+                            LinkedIn
                         </span>
                     </a>
                     <a
@@ -157,17 +172,18 @@ export default function Home({ darkMode }) {
                         onMouseEnter={() => setResume(true)}
                         onMouseLeave={() => setResume(false)}
                     >
-                        <div className={`p-0 sm:px-4 sm:py-3 flex items-center justify-center transition-all duration-500 shadow-md 
+                        <div className={`p-0 px-4 flex items-center justify-center transition-all duration-500 shadow-md 
                             ${resume ? "rounded-tl-full rounded-bl-full rounded-tr-none rounded-br-none animate-pulse" : "rounded-l-full rounded-full"}
-                            ${darkMode ? "sm:bg-amber-700 sm:text-black hover:shadow-amber-600" : "sm:bg-black sm:text-amber-600 hover:shadow-black"} hover-glow`}>
-                            <FaFileAlt className="text-xl rounded-md z-10" />
+                            ${darkMode ? "bg-gray-400 sm:text-black" : "bg-black hover:shadow-black"} hover-glow`}>
+                            <Lottie animationData={data} loop={true} className="w-10 h-10"/>
                         </div>
+                        
                         
                         <span className={`hidden sm:flex absolute left-full ml-1 pl-4 pr-5 py-2.5
                             rounded-r-full whitespace-nowrap shadow-md z-0 transition-all duration-500 ease-in-out hover-glow
-                            ${darkMode ? "bg-amber-700 text-black shadow-amber-700" : "bg-black text-amber-600 shadow-black"}
+                            ${darkMode ? "bg-gray-700 text-black " : "bg-black text-amber-600 shadow-black"}
                             ${resume ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4 pointer-events-none"}`}>
-                            My Resume
+                            Resume
                         </span>
                     </a>
                 </div>

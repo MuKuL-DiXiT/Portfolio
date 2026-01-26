@@ -11,15 +11,6 @@ import LandingAnimation from "./components/LandingAnimation";
 import SectionHeader from "./components/SectionHeader";
 import Lottie from "lottie-react";
 function AppContent({ darkMode, setDarkMode, showLanding }) {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    async function fetchData() {
-      const respons = await fetch('/typing.json');
-      const json = await respons.json();
-      setData(json);
-    }
-    fetchData();
-  }, []);
   const videoRef = useRef(null);
   const [fade, setFade] = useState(false);
   const [videoSrc, setVideoSrc] = useState(darkMode ? '/bgVideo.mp4' : '/bgWhite.mp4');
@@ -65,8 +56,6 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
   return (
     <>
       {showLanding && <LandingAnimation darkMode={darkMode} />}
-
-      {/* Scrollable, snap-to-section container */}
       <div
         className={`myDiv hide-scrollbar transition-all duration-1000 min-h-screen overflow-y-auto scroll-smooth flex flex-col border-x-8 border-black ${darkMode
           ? "text-white bg-gradient-to-tr from-slate-900 via-slate-700 to-slate-900"
@@ -85,15 +74,6 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
           <section id="home" className="snap-start flex flex-col items-center justify-center gap-10 pt-12 md:pt-0">
             <Home darkMode={darkMode} />
           </section>
-          {/* <section id="about" className="snap-start  flex flex-col items-center justify-center gap-10 pt-20 md:pt-0">
-            <SectionHeader title="About" darkMode={darkMode} />
-            <div className="flex flex-col md:flex-row items-start  justify-center gap-10">
-              <About darkMode={darkMode} />
-              <div className="w-full max-w-5xl mx-auto scale-80  mb-12">
-                <Lottie animationData={data} loop={true} className=""/>
-              </div>
-            </div>
-          </section> */}
           <section id="skills" className="snap-start flex flex-col items-center justify-center gap-10 pt-20">
             <SectionHeader title="Skills" darkMode={darkMode} />
             <Skills darkMode={darkMode} />
@@ -115,7 +95,7 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
 
 export default function App() {
   // ...existing code...
-  const [darkMode, setDarkMode] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
   const [showLanding, setShowLanding] = useState(true);
 
   useEffect(() => {
