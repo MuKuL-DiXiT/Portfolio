@@ -15,6 +15,7 @@ export default function Home({ darkMode }) {
     const [resume, setResume] = useState(false);
     const [data, setData] = useState(null);
     const [data1, setData1] = useState(null);
+    const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
 
 
     const homeRef = useRef(null);
@@ -45,6 +46,14 @@ export default function Home({ darkMode }) {
             setPoints(geod());
         }, 2000);
         return () => clearInterval(interval);
+    }, []);
+
+    useEffect(() => {
+        const handleResize = () => {
+            setIsSmallScreen(window.innerWidth < 640);
+        };
+        window.addEventListener('resize', handleResize);
+        return () => window.removeEventListener('resize', handleResize);
     }, []);
 
     useEffect(() => {
@@ -124,7 +133,7 @@ export default function Home({ darkMode }) {
             className={`transition-colors duration-5000 mt-20  md:m-32 m-5 sm:mx-6 flex flex-wrap gap-10 md:item-center justify-evenly ${darkMode ? 'text-orange-200' : 'text-black'}`}
         >
             <div className='sm:ml-10 mt-8 sm:mt-0 flex flex-col'>
-                <div className="social-icons-container md:mt-20 flex sm:flex-row flex-col gap-3">
+                <div className="social-icons-container justify-center sm:justify-start  md:mt-20 flex flex-row gap-3">
                     {socialLinks.map((link) => {
                         const Icon = link.icon;
                         return (
@@ -141,7 +150,7 @@ export default function Home({ darkMode }) {
                         );
                     })}
                 </div>
-                <div className="flex flex-col gap-3 sm:gap-3 sm:-ml-1 mt-3 sm:mt-10">
+                <div className="flex flex-row  justify-center sm:justify-start  sm:flex-col gap-3 sm:gap-3 sm:-ml-1 mt-3 sm:mt-10">
                     <a
                         href="https://www.linkedin.com/in/mukul-dixit-8b945227b/"
                         target="_blank"
@@ -189,7 +198,7 @@ export default function Home({ darkMode }) {
                 </div>
             </div>
 
-            <div className={`relative profile_image h-48 w-48 sm:h-64 rounded-full sm:w-64 border-8 ${darkMode ? "border-black" : "border-black/50"}`}>
+            <div className={`relative profile_image sm:pr-64 h-48 w-48 sm:h-64 rounded-full sm:w-64 border-8 ${darkMode ? "border-black" : "border-black/50"}`}>
 
             </div>
 
@@ -199,17 +208,16 @@ export default function Home({ darkMode }) {
                         options={{
                             strings: ["Mukul Dixit"],
                             autoStart: true,
-                            loop: true,
+                            loop: !isSmallScreen,
+                            deleteSpeed: isSmallScreen ? Infinity : undefined,
                             cursor: '',
                         }}
                     />
                 </div>
 
-                <div className="text-sm">
+                <div className="text-sm hidden sm:flex">
                     Learning by Building. Growing through Every Failure. <br />
                     Every project teaches me something new. Every bug tests my patience. Every late-night debug session pushes me one step closer. I’m not there yet — but I’m showing up, leveling up, and moving forward every single day.
-
-
                 </div>
 
 

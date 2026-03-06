@@ -67,8 +67,8 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
 
         
         <main className="relative flex flex-col md:mx-32">
-          <div class="absolute left-0 left-tree"></div>
-          <div class="absolute right-0 right-tree"></div>
+          <div class="absolute left-0 sm:flex hidden left-tree"></div>
+          <div class="absolute right-0 sm:flex hidden right-tree"></div>
           <div className="absolute right-0 sm:right-20 top-0 h-full w-6 border-l-2 border-r-2 border-black dark:border-gray-600 opacity-60 dark:opacity-40" style={{backgroundImage: "repeating-linear-gradient(45deg, gray 0px, gray 1px, transparent 0px, transparent 6px)", backgroundSize: "100% 100%", color: "black"}}></div>
           <div className="absolute left-0 sm:left-20 top-0 h-full w-6 border-l-2 border-r-2 border-black dark:border-gray-600 opacity-60 dark:opacity-40" style={{backgroundImage: "repeating-linear-gradient(45deg, gray 0px, gray 1px, transparent 0px, transparent 6px)", backgroundSize: "100% 100%", color: "black"}}></div>
           <section id="home" className="snap-start flex flex-col items-center justify-center gap-10 pt-12 md:pt-0">
@@ -94,7 +94,6 @@ function AppContent({ darkMode, setDarkMode, showLanding }) {
 }
 
 export default function App() {
-  // ...existing code...
   const [darkMode, setDarkMode] = useState(false);
   const [showLanding, setShowLanding] = useState(true);
 

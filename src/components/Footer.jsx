@@ -1,86 +1,59 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaInstagram, FaTelegram, FaKeyboard } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
-import { NavLink } from "react-router-dom";
+import {
+  FaGithub,
+  FaLinkedin,
+  FaInstagram,
+  FaTelegram,
+} from "react-icons/fa";
+import  {SiLeetcode } from "react-icons/si";
+import * as ReactGithubCalendar from "react-github-calendar";
 
 export default function Footer({ darkMode }) {
   return (
-    <footer
-      className={`
-        relative w-full md:w-9/12 sm:mt-0 mt-[400px] p-5 md:mx-44 border border-gray-500
-        ${darkMode ? "bg-gray-900 text-gray-300" : "bg-black/20 text-white"}
-        overflow-hidden
-      `}
-      aria-label="Site Footer"
-    >
-      <div
-        aria-hidden="true"
-        className="absolute inset-0 pointer-events-none bg-gradient-to-t from-black via-transparent to-transparent opacity-40"
-      />
+    <footer className="relative mx-32 flex justify-center">
 
-      <div className="relative max-w-7xl mx-auto flex flex-wrap md:flex-nowrap gap-12 md:gap-16 justify-between">
-        <section className="flex-shrink-0 md:max-w-xs w-full md:w-auto">
-          <h2
+      {/* Main container */}
+      <div
+        className={`
+        relative w-full max-w-6xl
+        rounded-t-[40px]
+        p-5
+        border
+        backdrop-blur-xl
+        shadow-2xl
+        overflow-hidden
+        ${darkMode
+          ? "bg-white/80 text-black border-gray-300"
+          : "bg-black/70 text-white border-gray-700"}
+        `}
+      >
+
+        {/* glow background */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.25),transparent_60%)] pointer-events-none" />
+
+        {/* content */}
+        <div className="relative z-10 flex flex-col gap-12">
+
+          {/* Heatmap */}
+          <div
             className={`
-              font-extrabold tracking-wide
-              ${darkMode ? "text-white" : "text-black"}
+            overflow-x-auto
+            rounded-xl
+            p-6
+            flex justify-center
+            ${darkMode ? "bg-gray-100" : "bg-gray-950/60"}
             `}
           >
-            Built with love by <span className="text-red-500">Mukul Dixit</span> 
-          </h2>
-        </section>
-
-
-        {/* Social Media Links */}
-        <section aria-label="Social media links" className="w-full md:w-auto">
-          <div className="flex gap-6">
-            <a
-              href="https://github.com/MuKuL-DiXiT"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="GitHub"
-              className="hover:text-red-500 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-red-400 rounded"
-            >
-              <FaGithub size={24} />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/mukul-dixit-8b945227b/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LinkedIn"
-              className="hover:text-sky-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400 rounded"
-            >
-              <FaLinkedin size={24} />
-            </a>
-            <a
-              href="https://leetcode.com/mukul_1608/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="LeetCode"
-              className="hover:scale-110 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 rounded"
-            >
-              <SiLeetcode size={24}  />
-            </a>
-            <a
-              href="https://t.me/mukuldixit"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Telegram"
-              className="hover:text-blue-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-400 rounded"
-            >
-              <FaTelegram size={24} />
-            </a>
-            <a
-              href="https://www.instagram.com/mukul____dixit/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="Instagram"
-              className="hover:text-pink-400 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-pink-400 rounded"
-            >
-              <FaInstagram size={24} />
-            </a>
+            <ReactGithubCalendar.GitHubCalendar
+              username="MuKuL-DiXiT"
+              blockSize={14}
+              blockMargin={5}
+              fontSize={14}
+              colorScheme={darkMode ? "light" : "dark"}
+            />
           </div>
-        </section>
+
+        </div>
       </div>
     </footer>
   );
