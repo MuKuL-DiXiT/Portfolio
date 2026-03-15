@@ -174,7 +174,7 @@ export default function Home({ darkMode }) {
                         </span>
                     </a>
                     <a
-                        href="https://drive.google.com/file/d/1uNq9QN-CE_-3N2P-yD2ajWos3aaqTGUh/view"
+                        href="https://drive.google.com/file/d/1D7b3u4VSSMieN9m3rQXXAJ82SuZQh6MS/view?usp=sharing"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="relative inline-flex items-center w-max overflow-visible min-w-0 group"

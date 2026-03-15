@@ -23,8 +23,8 @@ export default function Footer({ darkMode }) {
         shadow-2xl
         overflow-hidden
         ${darkMode
-          ? "bg-white/80 text-black border-gray-300"
-          : "bg-black/70 text-white border-gray-700"}
+          ? "bg-white/30 text-black border-gray-300"
+          : "bg-black/30 text-white border-gray-700"}
         `}
       >
 
