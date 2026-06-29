@@ -84,7 +84,7 @@ export default function Contacts({ darkMode }) {
     return (
         <div ref={containerRef} className='w-full flex flex-col items-center px-4 sm:px-6 pt-10 sm:pt-20 pb-5'>
 
-            <div className='ml-0 sm:ml-72 w-full md:px-0 px-16 max-w-4xl grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-12'>
+            <div className='w-full px-4 sm:px-8 lg:px-0 lg:ml-72 max-w-4xl grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12'>
                 <div className='flex flex-col gap-0'>
                     <div className='text-xl text-gray-600 font-semibold text-left'>Your Suggestions</div>
                     <form onSubmit={handleSubmit} className={`z-40 ${darkMode ? 'text-gray-200' : 'text-black'} flex flex-col gap-6`}>

@@ -1,13 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 export default {
+  darkMode: "class",
   content: ["./index.html",
     "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        playwright: ['Playwright', 'serif', 'sans'],
-        marker: ['Permanent Marker', 'cursive'],
-        sourGummy: ['"Sour Gummy"', 'cursive'],
+       fontFamily: {
+        sans: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+        marker: ['Montserrat', 'sans-serif'],
+        sourGummy: ['Montserrat', 'sans-serif'],
         mont: ['Montserrat', 'sans-serif'],
       },
       keyframes: {

@@ -1,60 +1,60 @@
-import React from "react";
-import {
-  FaGithub,
-  FaLinkedin,
-  FaInstagram,
-  FaTelegram,
-} from "react-icons/fa";
-import  {SiLeetcode } from "react-icons/si";
-import * as ReactGithubCalendar from "react-github-calendar";
+import React, { memo } from "react";
+import { GitHubCalendar } from "react-github-calendar";
 
-export default function Footer({ darkMode }) {
+const Footer = memo(function Footer({ darkMode }) {
   return (
-    <footer className="relative mx-32 flex justify-center">
+    <footer className="relativ w-full flex justify-center z-10">
 
       {/* Main container */}
       <div
         className={`
-        relative w-full max-w-6xl
-        rounded-t-[40px]
-        p-5
+        relative w-full max-w-5xl
+        rounded-t-[32px]
+        p-6
         border
         backdrop-blur-xl
-        shadow-2xl
+        shadow-xl
         overflow-hidden
+        transition-all duration-500
         ${darkMode
-          ? "bg-white/30 text-black border-gray-300"
-          : "bg-black/30 text-white border-gray-700"}
+          ? "bg-white/10 text-slate-100 border-white/5 shadow-black/40"
+          : "bg-black/30 text-slate-850 border-slate-200 shadow-slate-200/40"}
         `}
       >
 
         {/* glow background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.25),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(99,102,241,0.06),transparent_60%)] pointer-events-none" />
 
         {/* content */}
-        <div className="relative z-10 flex flex-col gap-12">
+        <div className="relative z-10 flex flex-col gap-6">
 
           {/* Heatmap */}
           <div
             className={`
             overflow-x-auto
-            rounded-xl
+            rounded-2xl
             p-6
             flex justify-center
-            ${darkMode ? "bg-gray-100" : "bg-gray-950/60"}
+            border
+            transition-all duration-500
+            ${darkMode ? "bg-white/30 border-white/5" : "bg-black/30 border-slate-200/50"}
             `}
           >
-            <ReactGithubCalendar.GitHubCalendar
-              username="MuKuL-DiXiT"
-              blockSize={14}
-              blockMargin={5}
-              fontSize={14}
-              colorScheme={darkMode ? "light" : "dark"}
-            />
+            <div className="w-full scale-90 sm:scale-140 origin-center flex justify-center">
+              <GitHubCalendar
+                username="MuKuL-DiXiT"
+                blockSize={12}
+                blockMargin={4}
+                fontSize={12}
+                colorScheme={darkMode ? "dark" : "light"}
+              />
+            </div>
           </div>
 
         </div>
       </div>
     </footer>
   );
-}
+});
+
+export default Footer;
