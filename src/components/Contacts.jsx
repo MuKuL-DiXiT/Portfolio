@@ -1,9 +1,9 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef, memo } from 'react';
 import { FaEnvelope, FaLinkedin, FaInstagram } from 'react-icons/fa';
 import Lottie from 'lottie-react';
 import gsap from 'gsap';
 
-export default function Contacts({ darkMode }) {
+const Contacts = memo(function Contacts({ darkMode }) {
     const [rotation, setRotation] = useState({});
     const [formData, setFormData] = useState({
         name: '',
@@ -144,4 +144,6 @@ export default function Contacts({ darkMode }) {
             </div>
         </div>
     );
-}
+});
+
+export default Contacts;

@@ -1,6 +1,6 @@
-import React from "react";
+import React, { memo } from "react";
 
-export default function SectionHeader({ title, darkMode }) {
+const SectionHeader = memo(function SectionHeader({ title, darkMode }) {
   return (
     <div className="w-full flex flex-col items-center select-none pt-4 mb-2">
       <div className="relative inline-block">
@@ -36,4 +36,6 @@ export default function SectionHeader({ title, darkMode }) {
       />
     </div>
   );
-}
+});
+
+export default SectionHeader;

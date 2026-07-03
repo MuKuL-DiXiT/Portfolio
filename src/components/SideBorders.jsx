@@ -130,7 +130,7 @@ const glowColors = {
 };
 
 // Render a single branch node recursively
-function RenderBranchNode({ node, darkMode, activeSection }) {
+const RenderBranchNode = React.memo(function RenderBranchNode({ node, darkMode }) {
   const dashArray = node.level === 4 ? "4 1.5" : undefined;
 
   const durationOffset = Math.sin(node.level + node.x0) * 1.5;
@@ -186,11 +186,11 @@ function RenderBranchNode({ node, darkMode, activeSection }) {
         variants={pathVariants}
       />
       {node.children && node.children.map((child) => (
-        <RenderBranchNode key={child.id} node={child} darkMode={darkMode} activeSection={activeSection} />
+        <RenderBranchNode key={child.id} node={child} darkMode={darkMode} />
       ))}
     </motion.g>
   );
-}
+});
 
 export default function SideBorders({ side, darkMode, targetId, activeSection }) {
   const [parentCoords, setParentCoords] = React.useState(null);
@@ -325,7 +325,7 @@ export default function SideBorders({ side, darkMode, targetId, activeSection })
         {/* Performance Optimization: Applied displacement filter once on the parent group instead of on each individual path */}
         <g filter="url(#thinBranchFilter)">
           {systems.map((systemNode) => (
-            <RenderBranchNode key={systemNode.id} node={systemNode} darkMode={darkMode} activeSection={activeSection} />
+            <RenderBranchNode key={systemNode.id} node={systemNode} darkMode={darkMode} />
           ))}
         </g>
       </motion.svg>

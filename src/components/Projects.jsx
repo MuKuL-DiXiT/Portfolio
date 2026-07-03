@@ -1,6 +1,7 @@
-import { useEffect, useState, useCallback, memo } from "react";
+import { useEffect, useState, useCallback, memo, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { FaReact, FaYahoo, FaGithub } from "react-icons/fa";
-import { SiExpress, SiMongodb, SiMongoose, SiPandas, SiPlotly, SiSocketdotio, SiStreamlit, SiTailwindcss, SiPython, SiNginx, SiOpencv, SiTensorflow, SiObsstudio } from "react-icons/si";
+import { SiExpress, SiMongodb, SiMongoose, SiPandas, SiPlotly, SiSocketdotio, SiStreamlit, SiTailwindcss, SiPython, SiNginx, SiOpencv, SiTensorflow, SiObsstudio, SiDocker, SiYaml } from "react-icons/si";
 import { SiFirebase } from "react-icons/si";
 import { Sparkles, ExternalLink, Cpu, CheckCircle2, Code2, ArrowLeft, ArrowRight } from "lucide-react";
 
@@ -27,6 +28,54 @@ function LazyImage({ src, alt, className, darkMode }) {
     );
 }
 
+const themeConfig = {
+    "Future's Hope": {
+        glow: "rgba(45, 212, 191, 0.35)",
+        border: "border-teal-500/20",
+        hoverBorder: "hover:border-teal-400/40",
+        badgeBg: "bg-teal-500/10 text-teal-300",
+        accentText: "text-teal-400",
+        btnGrad: "from-teal-500 to-emerald-600",
+        indicatorBg: "bg-teal-500",
+    },
+    "PyProxy": {
+        glow: "rgba(6, 182, 212, 0.35)",
+        border: "border-cyan-500/20",
+        hoverBorder: "hover:border-cyan-400/40",
+        badgeBg: "bg-cyan-500/10 text-cyan-300",
+        accentText: "text-cyan-400",
+        btnGrad: "from-cyan-500 to-blue-600",
+        indicatorBg: "bg-cyan-500",
+    },
+    "smartEye": {
+        glow: "rgba(239, 68, 68, 0.35)",
+        border: "border-red-500/20",
+        hoverBorder: "hover:border-red-400/40",
+        badgeBg: "bg-red-500/10 text-red-300",
+        accentText: "text-red-400",
+        btnGrad: "from-red-500 to-rose-600",
+        indicatorBg: "bg-red-500",
+    },
+    "Stockery": {
+        glow: "rgba(59, 130, 246, 0.35)",
+        border: "border-blue-500/20",
+        hoverBorder: "hover:border-blue-400/40",
+        badgeBg: "bg-blue-500/10 text-blue-300",
+        accentText: "text-blue-400",
+        btnGrad: "from-blue-500 to-indigo-600",
+        indicatorBg: "bg-blue-500",
+    },
+    "Money Mint": {
+        glow: "rgba(245, 158, 11, 0.35)",
+        border: "border-amber-500/20",
+        hoverBorder: "hover:border-amber-400/40",
+        badgeBg: "bg-amber-500/10 text-amber-300",
+        accentText: "text-amber-400",
+        btnGrad: "from-amber-500 to-orange-600",
+        indicatorBg: "bg-amber-500",
+    }
+};
+
 const ProjectSlideshow = memo(function ProjectSlideshow({ darkMode = false }) {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 768);
@@ -39,7 +88,7 @@ const ProjectSlideshow = memo(function ProjectSlideshow({ darkMode = false }) {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    const projects = [
+    const projects = useMemo(() => [
         {
             title: "Future's Hope",
             description: "Future's Hope is a community-driven social platform designed to promote environmental and social impact initiatives. Users can share their ideas, showcase eco-friendly projects, join interest-based communities, and interact through posts, comments, and chats. It also supports proof-based donation sharing to encourage transparency and inspire collective action.",
@@ -61,6 +110,23 @@ const ProjectSlideshow = memo(function ProjectSlideshow({ darkMode = false }) {
             ],
             liveLink: "https://futures-hope.vercel.app/",
             thumbnail: "/futureshope.jpg",
+        },
+        {
+            title: "PyProxy",
+            description: "A multi-threaded TCP load balancer and network proxy implemented in Python using standard networking and concurrency libraries. It supports dynamic load distribution strategies, active target health checks, and automatic mid-flight failover retries.",
+            features: [
+                "Multiple Load Balancing Strategies: Round-Robin and Least Connections",
+                "Mid-Flight Request Retries: Buffers and replays payloads on failure",
+                "Active Health Check Daemon: Monitors nodes via HTTP/TCP pings",
+                "Bidirectional TCP Proxy: Symmetrically routes client-backend traffic"
+            ],
+            technologies: [
+                { name: "Python", icon: <SiPython className="text-lg text-yellow-500" /> },
+                { name: "YAML", icon: <SiYaml className="text-lg text-red-500" /> },
+                { name: "Docker", icon: <SiDocker className="text-lg text-sky-500" /> }
+            ],
+            liveLink: "https://github.com/mukul-dixit/pyproxy",
+            thumbnail: "/pyproxy.png",
         },
         {
             title: "smartEye",
@@ -116,46 +182,7 @@ const ProjectSlideshow = memo(function ProjectSlideshow({ darkMode = false }) {
             liveLink: "https://money-mint-ten.vercel.app/",
             thumbnail: "/image2.jpg",
         }
-    ];
-
-    const themeConfig = {
-        "Future's Hope": {
-            glow: "rgba(45, 212, 191, 0.35)",
-            border: "border-teal-500/20",
-            hoverBorder: "hover:border-teal-400/40",
-            badgeBg: "bg-teal-500/10 text-teal-300",
-            accentText: "text-teal-400",
-            btnGrad: "from-teal-500 to-emerald-600",
-            indicatorBg: "bg-teal-500",
-        },
-        "smartEye": {
-            glow: "rgba(239, 68, 68, 0.35)",
-            border: "border-red-500/20",
-            hoverBorder: "hover:border-red-400/40",
-            badgeBg: "bg-red-500/10 text-red-300",
-            accentText: "text-red-400",
-            btnGrad: "from-red-500 to-rose-600",
-            indicatorBg: "bg-red-500",
-        },
-        "Stockery": {
-            glow: "rgba(59, 130, 246, 0.35)",
-            border: "border-blue-500/20",
-            hoverBorder: "hover:border-blue-400/40",
-            badgeBg: "bg-blue-500/10 text-blue-300",
-            accentText: "text-blue-400",
-            btnGrad: "from-blue-500 to-indigo-600",
-            indicatorBg: "bg-blue-500",
-        },
-        "Money Mint": {
-            glow: "rgba(245, 158, 11, 0.35)",
-            border: "border-amber-500/20",
-            hoverBorder: "hover:border-amber-400/40",
-            badgeBg: "bg-amber-500/10 text-amber-300",
-            accentText: "text-amber-400",
-            btnGrad: "from-amber-500 to-orange-600",
-            indicatorBg: "bg-amber-500",
-        }
-    };
+    ], [darkMode]);
 
     const nextSlide = useCallback(() => {
         setActiveIndex((prev) => (prev + 1) % projects.length);
@@ -356,6 +383,19 @@ const ProjectSlideshow = memo(function ProjectSlideshow({ darkMode = false }) {
                                                 <span>{project.liveLink.includes("github.com") ? "View Code" : "Launch Site"}</span>
                                                 {project.liveLink.includes("github.com") ? <FaGithub className="w-3.5 h-3.5" /> : <ExternalLink className="w-3.5 h-3.5" />}
                                             </a>
+
+                                            {/* Case Study Details Button */}
+                                            <Link
+                                                to={`/projects/${project.title.toLowerCase().replace(/\s+/g, '-').replace(/'/g, '')}`}
+                                                className={`w-full py-3 rounded-full flex items-center justify-center gap-2 font-bold tracking-wider uppercase text-xs shadow-lg transition-all duration-300 hover:scale-[1.02] active:scale-[0.98] border
+                                                    ${darkMode
+                                                        ? 'bg-white/5 border-white/10 text-white hover:bg-white/10'
+                                                        : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
+                                                    }`}
+                                            >
+                                                <span>Case Study</span>
+                                                <Sparkles className="w-3.5 h-3.5 text-indigo-450" />
+                                            </Link>
                                         </div>
                                     </div>
                                 </div>

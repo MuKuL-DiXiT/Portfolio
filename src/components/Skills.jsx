@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, memo } from "react";
 import { motion, useAnimation } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { FaJs, FaReact, FaHtml5, FaCss3, FaNodeJs, FaTags, FaChartPie } from "react-icons/fa";
 import { SiTailwindcss, SiExpress, SiMongodb, SiMongoose, SiSocketdotio, SiMysql, SiGit, SiJsonwebtokens, SiCplusplus, SiC, SiGithub, SiNextdotjs, SiPostman, SiTypescript, SiVercel, SiRender, SiDocker, SiPython, SiNumpy, SiPandas, SiPrisma, SiPostgresql, SiTensorflow } from "react-icons/si";
 
 
-export default function Skills({ darkMode }) {
+const Skills = memo(function Skills({ darkMode }) {
   const [box, setBox] = useState(null);
 
   const skills = [
@@ -138,4 +138,6 @@ export default function Skills({ darkMode }) {
       </div>
     </div>
   );
-}
+});
+
+export default Skills;

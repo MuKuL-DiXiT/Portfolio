@@ -2,6 +2,16 @@ import React, { useEffect, useState, memo } from "react";
 import { Home, Code, Folder, Contact, Sun, Moon, Menu } from "lucide-react";
 import { motion } from "framer-motion";
 
+const navItems = [
+    { to: "#home", label: "Home", icon: Home },
+    { to: "#skills", label: "Skills", icon: Code },
+    { to: "#projects", label: "Projects", icon: Folder },
+    { to: "#contacts", label: "Contact", icon: Contact },
+];
+const hint = ['shift+h', 'shift+s', 'shift+p', 'shift+c'];
+
+const navClass = `group relative w-12 h-12 sm:w-16 lg:w-20 flex items-center justify-center rounded-full transition-all duration-300`;
+
 const Navbar = memo(function Navbar({ darkMode, setDarkMode, activeSection }) {
     const [isSidebarOpen, setIsSidebarOpen] = useState(false);
     const [scrolled, setScrolled] = useState(false);
@@ -14,16 +24,6 @@ const Navbar = memo(function Navbar({ darkMode, setDarkMode, activeSection }) {
         onScroll(); // Check on mount
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
-
-    const navItems = [
-        { to: "#home", label: "Home", icon: Home },
-        { to: "#skills", label: "Skills", icon: Code },
-        { to: "#projects", label: "Projects", icon: Folder },
-        { to: "#contacts", label: "Contact", icon: Contact },
-    ];
-    const hint = ['shift+h', 'shift+s', 'shift+p', 'shift+c'];
-
-    const navClass = `group relative w-12 h-12 sm:w-16 lg:w-20 flex items-center justify-center rounded-full transition-all duration-300`;
 
     return (
         <div className={`fixed ${scrolled ? "top-4" : "top-0"} left-0 right-0 w-full z-50 transition-all duration-500 flex justify-center px-4`}>

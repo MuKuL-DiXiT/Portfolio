@@ -1,4 +1,5 @@
 import React, { useState, useEffect, lazy, Suspense } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Skills from "./components/Skills";
 import Projects from "./components/Projects";
@@ -8,6 +9,7 @@ import SideBorders from "./components/SideBorders";
 
 const Contacts = lazy(() => import("./components/Contacts"));
 const Footer = lazy(() => import("./components/Footer"));
+const ProjectDetail = lazy(() => import("./components/ProjectDetail"));
 
 function AppContent({ darkMode, setDarkMode }) {
   const [activeSection, setActiveSection] = useState("home");
@@ -138,6 +140,19 @@ export default function App() {
   }, [darkMode]);
 
   return (
-    <AppContent darkMode={darkMode} setDarkMode={setDarkMode} />
+    <Router>
+      <Suspense fallback={
+        <div className={`h-screen w-screen flex items-center justify-center text-sm font-mono transition-colors duration-500 ${
+          darkMode ? 'bg-[#070913] text-white/50' : 'bg-[#fcfbf4] text-black/50'
+        }`}>
+          Loading case study...
+        </div>
+      }>
+        <Routes>
+          <Route path="/" element={<AppContent darkMode={darkMode} setDarkMode={setDarkMode} />} />
+          <Route path="/projects/:slug" element={<ProjectDetail darkMode={darkMode} setDarkMode={setDarkMode} />} />
+        </Routes>
+      </Suspense>
+    </Router>
   );
 }

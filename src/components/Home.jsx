@@ -6,6 +6,13 @@ import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
 gsap.registerPlugin(ScrollTrigger);
 
+const socialLinks = [
+    { url: "https://github.com/MuKuL-DiXiT", icon: SiGithub, hoverColor: "hover:text-black dark:hover:text-white", label: "GitHub" },
+    { url: "https://leetcode.com/u/Mukul_1608/", icon: SiLeetcode, hoverColor: "hover:text-amber-500", label: "LeetCode" },
+    { url: "https://www.linkedin.com/in/mukul-dixit-8b945227b/", icon: SiLinkedin, hoverColor: "hover:text-sky-600", label: "LinkedIn" },
+    { url: "https://drive.google.com/file/d/1D7b3u4VSSMieN9m3rQXXAJ82SuZQh6MS/view?usp=sharing", icon: SiFiles, hoverColor: "hover:text-red-500", label: "Resume" }
+];
+
 const Home = memo(function Home({ darkMode }) {
     const [isSmallScreen, setIsSmallScreen] = useState(window.innerWidth < 640);
     const [profileLoaded, setProfileLoaded] = useState(false);
@@ -19,13 +26,6 @@ const Home = memo(function Home({ darkMode }) {
     const homeRef = useRef(null);
     const mainImageRef = useRef(null);
     const textContentRef = useRef(null);
-
-    const socialLinks = [
-        { url: "https://github.com/MuKuL-DiXiT", icon: SiGithub, hoverColor: "hover:text-black dark:hover:text-white", label: "GitHub" },
-        { url: "https://leetcode.com/u/Mukul_1608/", icon: SiLeetcode, hoverColor: "hover:text-amber-500", label: "LeetCode" },
-        { url: "https://www.linkedin.com/in/mukul-dixit-8b945227b/", icon: SiLinkedin, hoverColor: "hover:text-sky-600", label: "LinkedIn" },
-        { url: "https://drive.google.com/file/d/1D7b3u4VSSMieN9m3rQXXAJ82SuZQh6MS/view?usp=sharing", icon: SiFiles, hoverColor: "hover:text-red-500", label: "Resume" }
-    ];
 
     useEffect(() => {
         const handleResize = () => {
